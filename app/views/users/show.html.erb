@@ -1,0 +1,39 @@
+<div class="container mt-5">
+
+
+	<div class="media comment border-bottom mb-4">
+
+		<div class="media-left media-object mr-2 text-center">
+			<%= attachment_image_tag @user, :image, :fill, 100,100, format: 'jpeg', class: "block mb-1", fallback: "no_image.jpg"  %>
+			<%= @user.tag %>
+		</div>
+
+
+		<div class="media-body media-bottom">
+			<h3 class="media-bottom">
+				名前：<%= @user.name %></h3>
+			<%= @user.descreption %></br>
+		</div>
+	</div>
+			<div class="media-body media-right media-object">
+			<% if @user == current_user %>
+			<p>
+			  <button type="button" class="btn btn-secondary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+			   機能
+			  </button>
+			</p>
+			<div class="collapse" id="collapseExample">
+			  <div class="card card-body">
+				<%= link_to new_blog_path(current_user) , class: 'text-dark' do %>
+					新しい記事を書く
+		        <% end %>
+		        </br>
+				<%= link_to "プロフィール編集", edit_user_path(current_user), class: 'text-dark' %></br>
+				<%= link_to "いいねした記事", user_favorites_path(@user), class: 'text-dark' %></br>
+				<%= link_to '退会する', user_path(@user) , class: 'text-dark', method: :delete,"data-confirm" => "本当に退会しますか" %>
+			  </div>
+			</div><% end %>
+		</div>
+
+		<%= render 'blogs/index', blogs: @blogs %>
+</div>

@@ -1,0 +1,157 @@
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+		  	<div class="blog-post">
+		    	<h2 class="page-header">
+		    		<%= @blog.header %>
+	    		</h2>
+		    	<div class="blog-post-meta text-right mb-3">
+		    		<%= @blog.created_at %>
+			  		<% if @blog.tag  == "要約文" %>
+	        		<strong class="d-inline-block mb-2 text-success"><%= @blog.tag  %>
+	        		</strong>
+	                <% else %>
+	        		<strong class="d-inline-block mb-2 text-warning"><%= @blog.tag  %>
+	        		</strong>
+	                <% end %>
+        		</div>
+		    </div>
+		    <section class="section mb-4">
+					<div class="flex-md-row h-md-300 d-flex flex-nowrap">
+            			<div class="row">
+            				<div class="col-md-6 col-xs-12 order-1 order-md-1">
+	            				<p>主張</p>
+						   		<p><%= @blog.claim1 %></p>
+						   	</div>
+					   		<div class="col-md-6 col-xs-12 order-4 order-md-2">
+	    				    	<p>対比軸</p>
+								<p><%= @blog.claim2 %></p>
+							</div>
+
+            				<div class="col-md-6 col-xs-12 order-2 order-md-3">
+	            				<p>根拠</p>
+						   		<p><%= @blog.basis1 %></p>
+						   	</div>
+					   		<div class="col-md-6 col-xs-12 order-5 order-md-4">
+	    				    	<p>根拠</p>
+								<p><%= @blog.basis2 %></p>
+							</div>
+
+            				<div class="col-md-6 col-xs-12 order-3 order-md-5">
+	            				<p>具体例</p>
+						   		<p class="border-bottom pb-2"><%= @blog.example1 %></p>
+						   	</div>
+					   		<div class="col-md-6 col-xs-12 order-6 order-md-6">
+	    				    	<p>具体例</p>
+								<p class="border-bottom pb-2"><%= @blog.example2 %></p>
+							</div>
+ 						</div>
+					</div>
+			</section>
+
+			<section class="section2 mb-4">
+					<p class="letter">要約</p>
+					<p class="row letter"><%= @blog.body %></p>
+				<div class="text-right mb-3">
+					文責　<% if @blog.user == nil %>
+					退会済みユーザー
+					<% else %>
+					<%= link_to user_path(@blog.user) do %>
+					<%= @blog.user.name %>　<% end %>
+					<% end %>
+					<% if current_user == nil %>
+                        <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+					      <%= link_to blog_favorites_path(@blog) do %>
+					      	<%= @blog.favorites.count %><% end %>
+					<% elsif @blog.favorited_by?(current_user) %>
+						<%= link_to blog_favorites_path(@blog), method: :get do %>
+					      <i class="glyphicon glyphicon-heart", id="favoritelink", aria-hidden="true" style="color: red;"></i>
+					      	<%= @blog.favorites.count %><% end %>
+					<% else %>
+					      <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+					      <%= link_to blog_favorites_path(@blog) do %>
+					      	<%= @blog.favorites.count %><% end %>
+					<% end %>　
+					<i class="glyphicon glyphicon-comment" aria-hidden="true"></i>
+					<%= @blog.post_comments.count %>　
+
+					<% if @blog.user == current_user %>
+						<%= link_to "編集", edit_blog_path %>
+						<%= link_to "削除", blog_path(@blog), method: :delete,"data-confirm" => "本当に削除しますか"  %>
+					<% end %>
+				</div>
+				<% if current_user == nil %>
+				<% else %>
+				<div class="row border">
+					<div class="col-xs-6 btn btn-default text-center text-dark">
+						<% if @blog.favorited_by?(current_user) %>
+					      <%= link_to blog_favorites_path(@blog),class:"text-dark", method: :delete,remote:true do %>
+					      <i class="glyphicon glyphicon-heart", id="favorite", id="favoritelink", aria-hidden="true" style="color: red;"></i>　いいね！<% end %>
+						<% else %>
+					      <%= link_to blog_favorites_path(@blog),class:"text-dark", method: :post,remote:true do %>
+					      <i class="glyphicon glyphicon-heart", id="favorite", id="favoritelink", aria-hidden="true"></i>　いいね！<% end %>
+						<% end %>
+					</div>
+					<div class="col-xs-6 btn btn-default text-center" id="sampleButton2">
+						コメントする
+					</div>
+				</div><% end %>
+			</section>
+
+				<% @blog.post_comments.each do |post_comment| %>
+				<div class="media comment border-bottom">
+					<div class="media-left media-object mr-2 text-center">
+						<%= link_to user_path(post_comment.user) do %>
+						<%= attachment_image_tag post_comment.user, :image, :fill, 80,80, format: 'jpeg', class: "block" %><% end %>
+					</div>
+					<div class="media-body media-obfect">
+						<h4 class="media-heading">
+							<%= link_to user_path(post_comment.user) do %>
+							<%= post_comment.user.name %><% end %></h4>
+						<%= post_comment.comment %></br>
+						<div class="text-right comment-bottom">
+							<% if post_comment.user == current_user %>
+							<%= link_to "削除", blog_post_comments_path(@blog), method: :delete %>
+							<% end %>
+							<%= post_comment.created_at.strftime('%Y/%m/%d') %>
+						</div>
+					</div>
+				</div>
+				<% end %>
+		</div>
+	
+
+	<div class="modal fade　mt-5" id="sampleModal2" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+					<h4 class="modal-title"></h4>
+				</div>
+				<div class="modal-body">
+				     <%= form_for [@blog, @post_comment] do |f| %>
+				   	 <%= f.text_field :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+				     <div class="btn inline">
+				     	<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+				     </div>
+				   <% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+	$( function() {
+		$('#sampleButton2').click( function () {
+			$('#sampleModal2').modal();
+		});
+	});
+
+	$( function() {
+		$('#favorite').click( function () {
+			$.get("blog_path(@blog)"+$(this).val(),function(data){
+				$("#favoritelink").html(data);
+			});
+		});
+	});
+	</script>

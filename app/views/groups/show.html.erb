@@ -1,0 +1,118 @@
+<div class="container mt-5">
+	<div class="media comment border-bottom mb-4">
+		<div class="media-left media-object mr-2 text-center">
+			<%= attachment_image_tag @group, :image, format: 'jpeg', class: "block", fallback: "no_image.jpg", size:'80x80' %>
+		</div>
+		<div class="media-body media-obfect mb-1">
+			<h3><%= @group.name %></h3>	
+			<%= @group.descreption %></br>
+			<h6 class="text-right text-dark">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalLong">
+                  メンバー
+                </button>
+			</h6>
+		</div>
+	</div>
+</div>
+
+<div class="row mb-2">
+	<% @group.users.each do |user| %>
+	<% user.blogs.each do |blog| %>
+    <div class="col-md-6">
+        <div class="card flex-md-row mb-4 box-shadow h-md-300">
+            <div class="card-body d-flex flex-column align-items-start">
+                <% if blog.tag  == "意見文" %>
+        		<strong class="d-inline-block mb-2 text-warning"><%= blog.tag  %>
+        		</strong>
+                <% else %>
+                <strong class="d-inline-block mb-2 text-success"><%= blog.tag  %>
+                </strong>
+                <% end %>
+        		<ul class="list-inline float-left">
+                	</li>
+	                <li class="list-inline-item label bg-secondary ">
+	                	著者：<%= blog.author  %>
+                	</li>
+					<li class="list-inline-item label bg-secondary">
+						出典：<%= blog.source %>
+					</li>
+					<li class="list-inline-item label bg-secondary">
+						問題集：<%= blog.book %>
+					</li>
+				</ul>
+                <h3 class="mb-0">
+                    <div class="text-dark media-heading mb-2">
+                    	<%= link_to blog_path(blog),class:"text-dark" do %>
+                    		<%= blog.header %><% end %>
+            		</div>
+                </h3>
+                <p class="card-text mb-3">
+                	<ul class="list-inline">
+                	    <li class="list-inline-item">主張　</li>
+                	    <li class="list-inline-item"><%= blog.claim1 %></li>
+                	</ul>
+                	<ul class="list-inline">
+                	    <li class="list-inline-item">対比軸</li>
+                	    <li class="list-inline-item"><%= blog.claim2 %></li>
+                	</ul>
+            	</p>
+            	<ul class="list-inline text-right">
+            		<% if blog.favorited_by?(current_user) %>
+            			<li class="list-inline-item glyphicon glyphicon-heart" aria-hidden="true" style="color: red;">
+                            <%= blog.favorites.count %></li>
+					<% else %>
+			      		<li class="list-inline-item glyphicon glyphicon-heart" aria-hidden="true">
+                            <%= blog.favorites.count %></li>
+            		<% end %>
+            		    <li class="list-inline-item glyphicon glyphicon-comment" aria-hidden="true">
+					    <%= blog.post_comments.count %></li>
+					    <li class="list-inline-item">
+					    	<%= link_to 'もっと詳しく', blog_path(blog),class:"text-dark" %>
+                		</li>
+            	</ul>
+            </div>
+        </div>
+    </div><% end %><% end %>
+</div>
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">メンバー（<%= @group.users.count %>）</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+            <% @group.users.each do |user| %>
+            <div class="media border-bottom">
+                <div class="media-left media-object mr-1 text-center">
+                    <%= attachment_image_tag user, :image, format: 'jpeg', class: "block",fallback: "no_image.jpg", size: '40x40' %>
+                </div>
+                <div class="media-body media-object">
+                    <h4 class="media-heading text-dark">
+                        <%= user.name %>
+                        <h6>
+                            <%= link_to "退会させる", group_group_user_path(@group, group_user:user.id),class: "text-dark text-right", method: :delete, "data-confirm" => "本当に退会させますか" %>
+                        </h6>
+                    </h4>
+                </div>
+            </div>
+            <% end %>
+        
+      </div>
+      <div class="modal-footer">
+                <%= link_to group_group_users_path(group_id: @group.id) do %>
+                <button type="button" class="btn btn-secondary">
+                友達を招待する</button>
+                <% end %>
+                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+      </div>
+    </div>
+  </div>
+</div>
+
