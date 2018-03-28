@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20180320091450) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "deleted_at", default: false, null: false
+    t.boolean "deleted_at", default: false
     t.string "image_id"
     t.text "descreption"
     t.string "tag"
