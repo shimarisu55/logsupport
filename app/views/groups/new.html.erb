@@ -1,0 +1,64 @@
+<h1 class="mt-5">ごめんなさい　ただいま工事中です</h1></br>
+<p>4月中に完成めざしてます。</p>
+<p>完成したら教室単位で記事の共有が楽しめます。</p>
+
+<!-- 
+	<div class="col-xs-12 col-lg-8 new-page">
+		<h2 class="page-header new-page">所属グループ
+				<button type="button" id="sampleButton" class="btn btn-secondary pull-right new-page">
+			グループ作成</button></h2>
+		<% @user.groups.each do |group| %>
+		<div class="media border-bottom box"><%= link_to group_path(group.id) do %>
+			<div class="media-left media-object mr-2 text-center size">
+				<%= attachment_image_tag group, :image, format: 'jpeg', class: "block",fallback: "no_image.jpg", size: '80x80' %>
+			</div>
+			<div class="media-body media-obfect"></br>
+				<h4 class="media-heading text-dark new-page">
+					<%= group.name %>（<%= group.group_users.count %>）</h4>
+				<h6 class="text-right text-dark">
+					<%= link_to "削除", group_path(group.id),class: "text-dark new-page", method: :delete, "data-confirm" => "本当に削除しますか" %>
+				</h6>
+			</div><% end %>
+		</div>
+		<% end %>
+	</div>
+</div>
+
+	<div class="modal fade mt-5" id="sampleModal" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+					<h4 class="modal-title">グループを作ろう</h4>
+
+				</div>
+				<div class="modal-body mt-5">
+					<h3>グループを作る</h3>
+				     <%= form_for(@group) do |f| %>
+				   	 <p>グループの名前</p>
+				     <%= f.text_field :name %>
+			 	   	 <p>イメージ画像</p>
+				     <%= f.attachment_field :image %>
+			 	   	 <p>紹介</p>
+				     <%= f.text_area :descreption %>
+
+				     <div></div>
+				     <div class="btn inline">
+				     	<%= f.submit 'グループを作る',class:"btn btn-secondary btn-block" %>
+				     </div>
+				   <% end %>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	$( function() {
+		$('#sampleButton').click( function () {
+			$('#sampleModal').modal();
+		});
+	});
+	</script> -->

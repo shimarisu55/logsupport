@@ -1,0 +1,25 @@
+
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>現在のグループメンバー</th>
+				</tr>
+			</thead>
+
+			<tbody><% @group.users.each do |user| %>
+				<tr>
+					<td><%= user.name %></td>
+					<td><%= link_to "退会させる",group_group_user_path(@group, user), method: :delete %>
+						<% end %>
+					</td>
+				</tr>
+				<p><%= link_to group_group_users_path(group_id: @group.id) do %>
+						<button type="button" class="btn btn-primary">
+							友達を招待する
+						</button>
+					<% end %>
+				</p>
+
+			</tbody>
+		</table>

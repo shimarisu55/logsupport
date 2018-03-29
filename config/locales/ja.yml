@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    attributes:
+      blog:
+        header: 見出し
+        author: 著者
+        source: 出典
+
+        body: 本文

@@ -1,0 +1,21 @@
+
+
+
+<div class="container">
+	<h2 class="page-header">友達を招待する</h2>
+    <% @users.each do |user| %>
+    <div class="media border-bottom">
+        <div class="media-left media-object mr-1 text-center">
+            <%= attachment_image_tag user, :image, format: 'jpeg', class: "block",fallback: "no_image.jpg", size: '40x40' %>
+        </div>
+        <div class="media-body media-obfect">
+            <h4 class="media-heading text-dark"><%= user.name %></h4>
+            <% if user.id ==  @group %>
+				友達
+			<% else %>
+			<%= link_to group_group_users_path(user_id: user.id, group_id: @group), method: :post do %>
+		    	友達になる<% end %>
+			<% end %>
+        </div>
+    </div><% end %>
+</div>
