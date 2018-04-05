@@ -10,7 +10,6 @@ end
 gem 'rails', '~> 5.1.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', groups: %w(test development)
-gem 'ibm_db', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -68,4 +67,3 @@ gem "paranoia", "~> 2.0"
 gem 'ransack'
 gem "font-awesome-rails"
 gem "kaminari"
-gem 'json', '~> 1.8.3.1'

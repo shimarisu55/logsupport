@@ -22,6 +22,6 @@ test:
 
 production:
   <<: *default
-   adapter: ibm_db
+   adapter: sqlite3
    encoding: unicode
    pool: 5
