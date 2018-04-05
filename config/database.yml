@@ -22,6 +22,8 @@ test:
 
 production:
   <<: *default
-   adapter: logsupport_production
-   encoding: unicode
-   pool: 5
+  database: logsupport_production
+#  encoding: unicode
+#  pool: 5
+#  username: yukidaru55
+#  password: Doraemon1
