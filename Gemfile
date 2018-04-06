@@ -62,8 +62,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
-# gem "refile",require: "refile/rails", github: 'manfe/refile'
-# gem "refile-mini_magick"
+gem "refile",require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
 gem 'rails-i18n'
 gem "paranoia", "~> 2.0"
 gem 'ransack'
