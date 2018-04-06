@@ -69,3 +69,4 @@ gem "paranoia", "~> 2.0"
 gem 'ransack'
 gem "font-awesome-rails"
 gem "kaminari"
+gem "nokogiri"

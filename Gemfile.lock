@@ -289,6 +289,7 @@ DEPENDENCIES
   jquery-rails (~> 4.3, >= 4.3.1)
   kaminari
   listen (>= 3.0.5, < 3.2)
+  nokogiri
   paranoia (~> 2.0)
   pg
   pry-byebug
