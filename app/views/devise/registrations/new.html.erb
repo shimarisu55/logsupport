@@ -1,5 +1,7 @@
 
 <div class="text-center mt-5 col-xs-12 col-sm-8 col-md-4  col-lg-3 mx-auto">
+ <p>LogSupportは小論文SNSサービスです。</p>
+ <p>いろんな友達を作り、自分の書く力を自力で磨いていきましょう。</p>
     <h1>新規登録</h1>
     <div class="form-body">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -24,7 +26,7 @@
             <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"inputConfirmPassword", placeholder:"パスワード確認" %>
              <span class="fa fa-check-circle-o form-control-icon" aria-hidden="true"></span>
         </div>
-            <%= f.submit "サインアップ", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+            <%= f.submit "サインアップ", class:"btn btn-primary btn-lg btn-block btn-base-1 mt-20" %>
         <% end %>
     </div>
     <%= render "devise/shared/links" %>

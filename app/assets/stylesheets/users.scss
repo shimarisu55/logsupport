@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.icon-size {
+  height:80px;
+  width:80px;
+}
+
 @media screen and (max-width:425px) {
 .clearfix::after {
     content:"";

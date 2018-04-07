@@ -101,7 +101,7 @@
 				<div class="media comment border-bottom">
 					<div class="media-left media-object mr-2 text-center">
 						<%= link_to user_path(post_comment.user) do %>
-						<%= attachment_image_tag post_comment.user, :image, :fill, 80,80, format: 'jpeg', class: "block icon-size" %><% end %>
+						<%= attachment_image_tag post_comment.user, :image, :fill, 80,80, format: 'jpeg', class: "block icon-size", fallback: "no_image.jpg" %><% end %>
 					</div>
 					<div class="media-body media-obfect">
 						<h4 class="media-heading">

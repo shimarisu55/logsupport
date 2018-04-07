@@ -23,6 +23,11 @@ p.letter{
     line-height: 2;
 }
 
+.icon-size {
+  height:80px;
+  width:80px;
+}
+
 @media screen and (max-width:425px) {
   .icon-size {
 	height:40px;
