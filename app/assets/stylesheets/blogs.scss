@@ -15,3 +15,24 @@ p.letter{
 .border-bottom{
 	border-bottom:3px solid #FFFF00;
 }
+
+.gsc-control-cse * {
+    box-sizing: content-box;
+}
+.gsc-input {
+    line-height: 2;
+}
+
+@media screen and (max-width:425px) {
+  .icon-size {
+	height:40px;
+	width: 40px;
+  }
+  .comment-name {
+   font-size: 18px;
+  }
+  .header-size {
+   font-size: 28px;
+  }
+
+}

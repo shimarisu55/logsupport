@@ -1,22 +1,14 @@
 <div class="container mt-5">
-	<div class="row text-center">
-		
-		<ul class="col-xs-6 list-inline">
+			<p>先輩が書いた記事を検索してみよう</p>
+	<div class="row text-center mb-3">
 			<%= search_form_for @q do |f| %>
-			<li class="list-inline-item"><%= f.label :author_cont, "著者" %></li>
-			<li class="list-inline-item"><%= f.search_field :author_cont %></li>
-			<li class="list-inline-item"><%= f.submit %></li>
-		</ul>
-		<ul class="col-xs-6 list-inline">
-			<li class="list-inline-item"><%= f.label :book_cont, "出典" %></li>
-			<li class="list-inline-item"><%= f.search_field :book_cont %></li>
-			<li class="list-inline-item"><%= f.submit %></li><% end %>
-		</ul>
-		
+			<div class="col-xs-12 col-md-3"><%= f.search_field :author_cont, placeholder: "著者" %></div>
+			<div class="col-xs-12 col-md-3"><%= f.search_field :source_cont, placeholder: "出典" %></div>
+			<div class="col-xs-12 col-md-3"><%= f.search_field :book_cont, placeholder: "問題集" %></div>
+			<div class=""><%= f.submit '検索', class:"btn btn-default btn-small" %></div>
+			<% end %>
 	</div>
 
-
-	
 	<%= render 'blogs/index', blogs: @blogs %>
 
 </div>

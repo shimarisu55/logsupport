@@ -21,11 +21,11 @@
     <div class="col-md-6">
         <div class="card flex-md-row mb-4 box-shadow h-md-300">
             <div class="card-body d-flex flex-column align-items-start">
-                <% if blog.tag  == "意見文" %>
-        		<strong class="d-inline-block mb-2 text-warning"><%= blog.tag  %>
+                <% if blog.tag  == "要約文" %>
+        		<strong class="d-inline-block mb-2 text-success"><%= blog.tag  %>
         		</strong>
                 <% else %>
-                <strong class="d-inline-block mb-2 text-success"><%= blog.tag  %>
+                <strong class="d-inline-block mb-2 text-warning"><%= blog.tag  %>
                 </strong>
                 <% end %>
         		<ul class="list-inline float-left">

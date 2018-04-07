@@ -1,15 +1,24 @@
 <div class="mt-5">
-
-<% @blog.favorites.each do |favorite| %>
-<%= link_to user_path(favorite.user) do %>
-	<div class="media comment border-bottom">
-		<div class="media-left media-object mr-2 text-center">
-			<%= attachment_image_tag favorite.user, :image, :fill, 80,80, format: 'jpeg', class: "block mb-1" %>
-		</div>
-		<div class="media-body media-obfect">
-			<h4 class="">
-				<%= favorite.user.name %></h4>
-		</div>
-	</div><% end %>
-<% end %>
+	<div class="page-header">
+		<% if current_user == nil %>
+            <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+		<% elsif @blog.favorited_by?(current_user) %>
+		      <i class="glyphicon glyphicon-heart", id="favoritelink", aria-hidden="true" style="color: red;"></i>
+		<% else %>
+		      <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+		<% end %>
+		<%= @blog.favorites.count %>
+	</div>
+	<% @blog.favorites.each do |favorite| %>
+	<%= link_to user_path(favorite.user) do %>
+		<div class="media comment border-bottom">
+			<div class="media-left media-object mr-2 text-center">
+				<%= attachment_image_tag favorite.user, :image, :fill, 80,80, format: 'jpeg', class: "block mb-1" %>
+			</div>
+			<div class="media-body media-obfect">
+				<h4 class="">
+					<%= favorite.user.name %></h4>
+			</div>
+		</div><% end %>
+	<% end %>
 </div>

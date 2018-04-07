@@ -1,5 +1,5 @@
 
-					<h1 class="mt-5">プロフィールを編集する</h1>
+					<h1 class="mt-5 header-size">プロフィールを編集する</h1>
 				     <%= form_for(@user) do |f| %>
 
 				   	 <p >名前</p>
@@ -9,7 +9,7 @@
 				     <%= f.attachment_field :image %>
 
 				 	 	 <p>紹介</p>
-				     <%= f.text_area :descreption, :size=>"60x10" %>
+				     <%= f.text_area :descreption, :size=>"10x5" %>
 				     <p>身分</p>
 				     <%= f.select :tag, [["小学生", "小学生"],["中学生", "中学生"],["高校生", "高校生"],["先生", "先生"],["その他", "その他"]] %>
 				     <div></div>
