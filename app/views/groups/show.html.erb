@@ -4,7 +4,7 @@
 			<%= attachment_image_tag @group, :image, format: 'jpeg', class: "block", fallback: "no_image.jpg", size:'80x80' %>
 		</div>
 		<div class="media-body media-obfect mb-1">
-			<h3><%= @group.name %></h3>	
+			<h3><%= @group.name %></h3>
 			<%= @group.descreption %></br>
 			<h6 class="text-right text-dark">
                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalLong">
@@ -85,7 +85,6 @@
         </button>
       </div>
       <div class="modal-body">
-        
             <% @group.users.each do |user| %>
             <div class="media border-bottom">
                 <div class="media-left media-object mr-1 text-center">
@@ -95,13 +94,12 @@
                     <h4 class="media-heading text-dark">
                         <%= user.name %>
                         <h6>
-                            <%= link_to "退会させる", group_group_user_path(@group, group_user:user.id),class: "text-dark text-right", method: :delete, "data-confirm" => "本当に退会させますか" %>
+                            <%= link_to "退会させる", group_group_user_path(@group.id, user.id), class: "text-dark text-right", method: :delete, "data-confirm" => "本当に退会させますか" %>
                         </h6>
                     </h4>
                 </div>
             </div>
             <% end %>
-        
       </div>
       <div class="modal-footer">
                 <%= link_to group_group_users_path(group_id: @group.id) do %>

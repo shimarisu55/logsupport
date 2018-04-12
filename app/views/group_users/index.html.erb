@@ -3,6 +3,20 @@
 
 <div class="container">
 	<h2 class="page-header">友達を招待する</h2>
+            <%#= search_form_for @q do |f| %>
+<!--             <div class="col-xs-10 col-md-12">
+                <%#= f.search_field :name_cont, class:"col-xs-8 col-md-6", placeholder: "名前" %>
+                <%#= f.submit '検索', class:"btn btn-default btn-small" %>
+                <input type="text" value="ユーザーのID" id="user-id" class="col-xs-8 col-md-10">   
+                <input type="button" value="検索" id="button-search">
+            </div> -->
+            <%# end %>
+
+
+
+<!--     <h1 id="test-btn">test</h1>
+    <p id="test-text">ためしのテストですjquery動くかな</p> -->
+
     <% @users.each do |user| %>
     <div class="media border-bottom">
         <div class="media-left media-object mr-1 text-center">
@@ -10,7 +24,7 @@
         </div>
         <div class="media-body media-obfect">
             <h4 class="media-heading text-dark"><%= user.name %></h4>
-            <% if user.id ==  @group %>
+            <% if user.groups.ids.include?(@group.id) %>
 				友達
 			<% else %>
 			<%= link_to group_group_users_path(user_id: user.id, group_id: @group), method: :post do %>
@@ -19,3 +33,16 @@
         </div>
     </div><% end %>
 </div>
+
+
+
+<!-- <script type="text/javascript">
+    $(function(){
+        $('#button-search').click(function(){
+            var user = $('#user-id').val();
+            //あとはuser-nameからuser_idを引っ張ってきて、＠usersに値を入れる
+            //user == user_name に一致するuserのみ表示
+            $('#test-text').css('color','red');
+        });
+    });
+</script> -->

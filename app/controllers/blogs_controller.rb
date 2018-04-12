@@ -2,13 +2,8 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!, except: [:index,:show]
 
   def index
-  	#@blog = Blog.new
-    #@blogs = Blog.all
-    # @q = Blog.search(params[:q])
     @q = Blog.ransack(params[:q])
-    # @blogs =@q.result
     @blogs = @q.result
-    # binding.pry
   end
 
   def show

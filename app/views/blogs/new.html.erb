@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="mt-5">
     <h1 class="header-size">新しい記事を作成する</h1>
        <% if @blog.errors.any? %>
         <div id="error_explanation" class="alert alert-danger">
@@ -10,7 +10,7 @@
         <% end %>
 
    <%= form_for(@blog) do |f| %>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
              <p>形式</p>
              <%= f.select :tag,  [["要約文", "要約文"],["意見文", "意見文"]], class: "select" %>
@@ -39,29 +39,29 @@
                     <div class="flex-md-row h-md-300 d-flex flex-nowrap">
                         <div class="row">
                             <div class="col-md-6 col-xs-12 order-1 order-md-1">
-                                <p>主張　*必須</p>
+                                <p>主張　*必須　15字以内</p>
                                 <%= f.text_field :claim1 %>
                             </div>
                             <div class="col-md-6 col-xs-12 order-4 order-md-2">
-                                <p>対比軸　*必須</p>
+                                <p>対比軸　*必須　15字以内</p>
                                 <%= f.text_field :claim2 %>
                             </div>
 
                             <div class="col-md-6 col-xs-12 order-2 order-md-3">
-                                <p>根拠</p>
+                                <p>根拠1</p>
                                 <%= f.text_field :basis1 %>
                             </div>
                             <div class="col-md-6 col-xs-12 order-5 order-md-4">
-                                <p>根拠</p>
+                                <p>根拠2</p>
                                 <%= f.text_field :basis2 %>
                             </div>
 
                             <div class="col-md-6 col-xs-12 order-3 order-md-5">
-                                <p>具体例</p>
+                                <p>具体例1</p>
                                 <%= f.text_field :example1 %>
                             </div>
                             <div class="col-md-6 col-xs-12 order-6 order-md-6">
-                                <p>具体例</p>
+                                <p>具体例2</p>
                                 <%= f.text_field :example2 %>
                             </div>
                         </div>
