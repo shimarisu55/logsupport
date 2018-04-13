@@ -1,0 +1,54 @@
+/* line 5, /vagrant/logsupport/app/assets/stylesheets/blogs.scss */
+p.letter {
+  letter-spacing: 0.1em;
+  padding: 0 10%;
+}
+
+/* line 9, /vagrant/logsupport/app/assets/stylesheets/blogs.scss */
+.block {
+  display: block;
+}
+
+/* line 12, /vagrant/logsupport/app/assets/stylesheets/blogs.scss */
+.comment-bottom {
+  vertical-align: bottom;
+}
+
+/* line 15, /vagrant/logsupport/app/assets/stylesheets/blogs.scss */
+.border-bottom {
+  border-bottom: 3px solid #FFFF00;
+}
+
+/* line 19, /vagrant/logsupport/app/assets/stylesheets/blogs.scss */
+.gsc-control-cse * {
+  box-sizing: content-box;
+}
+
+/* line 22, /vagrant/logsupport/app/assets/stylesheets/blogs.scss */
+.gsc-input {
+  line-height: 2;
+}
+
+/* line 26, /vagrant/logsupport/app/assets/stylesheets/blogs.scss */
+.icon-size {
+  height: 80px;
+  width: 80px;
+}
+
+@media screen and (max-width: 425px) {
+  /* line 32, /vagrant/logsupport/app/assets/stylesheets/blogs.scss */
+  .icon-size {
+    height: 40px;
+    width: 40px;
+  }
+
+  /* line 36, /vagrant/logsupport/app/assets/stylesheets/blogs.scss */
+  .comment-name {
+    font-size: 18px;
+  }
+
+  /* line 39, /vagrant/logsupport/app/assets/stylesheets/blogs.scss */
+  .header-size {
+    font-size: 28px;
+  }
+}

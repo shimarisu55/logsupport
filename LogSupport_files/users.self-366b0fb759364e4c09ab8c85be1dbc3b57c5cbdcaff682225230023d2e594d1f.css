@@ -1,0 +1,30 @@
+/* line 5, /vagrant/logsupport/app/assets/stylesheets/users.scss */
+.icon-size {
+  height: 80px;
+  width: 80px;
+}
+
+@media screen and (max-width: 425px) {
+  /* line 11, /vagrant/logsupport/app/assets/stylesheets/users.scss */
+  .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  /* line 16, /vagrant/logsupport/app/assets/stylesheets/users.scss */
+  .icon-size {
+    height: 60px;
+    width: 60px;
+  }
+
+  /* line 20, /vagrant/logsupport/app/assets/stylesheets/users.scss */
+  .header-size {
+    font-size: 28px;
+  }
+
+  /* line 23, /vagrant/logsupport/app/assets/stylesheets/users.scss */
+  .user-name {
+    font-size: 18px;
+  }
+}

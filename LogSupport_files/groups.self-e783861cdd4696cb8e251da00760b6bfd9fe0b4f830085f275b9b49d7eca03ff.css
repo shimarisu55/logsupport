@@ -1,0 +1,12 @@
+@media screen and (max-width: 425px) {
+  /* line 8, /vagrant/logsupport/app/assets/stylesheets/groups.scss */
+  .new-page {
+    font-size: 14px !important;
+  }
+
+  /* line 11, /vagrant/logsupport/app/assets/stylesheets/groups.scss */
+  .size {
+    width: 60px;
+    height: 60px;
+  }
+}
