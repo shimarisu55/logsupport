@@ -34,7 +34,7 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
-  config.web_console.whitelisted_ips = '10.0.2.2'
+  # config.web_console.whitelisted_ips = '10.0.2.2'
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load

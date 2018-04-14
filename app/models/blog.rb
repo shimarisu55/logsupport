@@ -13,8 +13,8 @@ class Blog < ApplicationRecord
 	validates :header, presence: true
 	validates :author, presence: true
 	validates :source, presence: true
-	validates :claim1, presence: true, length: { maximum: 15}
-	validates :claim2, presence: true, length: { maximum: 15}
+	validates :claim1, presence: true
+	validates :claim2, presence: true
 	validates :body, presence: true, length: { minimum: 10}
 
 end
