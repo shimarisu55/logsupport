@@ -25,6 +25,7 @@ class BlogsController < ApplicationController
   end
 
   def create
+    @user = User.find(current_user[:id])
   	@blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
   	if @blog.save
