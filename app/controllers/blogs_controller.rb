@@ -4,6 +4,7 @@ class BlogsController < ApplicationController
   def index
     @q = Blog.ransack(params[:q])
     @blogs = @q.result
+    @blogs = @blogs.page(params[:page]).per(10).order(:id)
   end
 
   def show
@@ -19,6 +20,8 @@ class BlogsController < ApplicationController
   def new
   	@blog = Blog.new
     @body = @blog.body
+    @user = User.find(current_user[:id])
+
   end
 
   def create

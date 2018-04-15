@@ -4,7 +4,7 @@
 		    	<h2 class="page-header">
 		    		<%= @blog.header %>
 	    		</h2>
-		    	<div class="blog-post-meta text-right mb-3">
+		    	<div class="blog-post-meta text-right">
 		    		<%= @blog.created_at %>
 			  		<% if @blog.tag  == "要約文" %>
 	        		<strong class="d-inline-block mb-2 text-success"><%= @blog.tag  %>
@@ -14,10 +14,13 @@
 	        		</strong>
 	                <% end %>
         		</div>
+        		<div class="text-right mb-3">
+        			出典：<%= @blog.source %>
+        		</div>
 		    </div>
 		    <section class="section mb-4">
-					<div class="flex-md-row h-md-300 d-flex flex-nowrap container-fluid">
-            			<div class="row">
+					<div class="flex-md-row h-md-300 d-flex flex-nowrap">
+            			<div class="row flex">
             				<div class="col-md-6 col-xs-12 order-1 order-md-1">
 	            				<p>主張</p>
 						   		<p><%= @blog.claim1 %></p>
