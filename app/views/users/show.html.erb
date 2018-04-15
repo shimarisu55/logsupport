@@ -9,28 +9,23 @@
 		</div>
 
 
-		<div class="media-body media-bottom">
+		<div class="media-body media-bottom container-fluid">
 			<h3 class="media-bottom user-name">
 				<%= @user.name %>  /id:<%= @user.id %></h3>
 			<%= @user.descreption %></br></br>
 			<% if @user == current_user %>
-			<div class="container-fluid mb-2">
+			<div class="mb-2">
 			  	<div class="row">
-			    	<div class="col-xs-3 btn btn-default">
-				      <%= link_to new_blog_path(current_user), class: 'text-dark' do %>
-				      <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i><% end %>
-				    </div>
-				    <div class="col-xs-3 btn btn-default">
-				      <%= link_to edit_user_path(current_user), class: 'text-dark' do %>
-				      <i class="glyphicon glyphicon-cog" aria-hidden="true"></i><% end %>
-				    </div>
-				    <div class="col-xs-3 btn btn-default">
-				      <%= link_to user_favorites_path(@user), class: 'text-dark' do %>
-				      <i class="glyphicon glyphicon-heart" aria-hidden="true"></i><% end %>
-				    </div>
-				    <div class="col-xs-3 btn btn-default">
-				    	<%= link_to '退会', user_path(@user) , class: 'text-dark', method: :delete,"data-confirm" => "本当に退会しますか" %>
-				    </div>
+		  			<%= link_to new_blog_path(current_user), class: 'btn btn-default text-dark col-md-3' do %>
+			      		<i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+				    <% end %>
+				    <%= link_to edit_user_path(current_user), class: 'btn btn-default text-dark col-md-3' do %>
+				      	<i class="glyphicon glyphicon-cog" aria-hidden="true"></i>
+				    <% end %>
+				    <%= link_to user_favorites_path(@user), class: 'btn btn-default text-dark col-md-3' do %>
+					    <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+			        <% end %>
+				    	<%= link_to '退会', user_path(@user) , class: 'text-dark btn bvtn-default col-md-3', method: :delete,"data-confirm" => "本当に退会しますか" %>
 			    </div>
 			</div>
 			<% end %>
