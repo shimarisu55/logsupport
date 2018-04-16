@@ -1,8 +1,13 @@
 class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
-    @users = @group.users.all
-    @users = @users.page(params[:page]).per(10).order(:id)
+
+    @users_blogs = []
+    @group.users.each do |user|
+      @users_blogs << user.blogs
+    end
+
+    
   end
 
   def index
