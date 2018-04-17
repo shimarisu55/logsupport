@@ -15,5 +15,6 @@ class User < ApplicationRecord
     group_users.where(group_id: group.id).exists?
   end
 
-  acts_as_paranoid column_type: 'boolean'
+  acts_as_paranoid# column_type: 'boolean'
+
 end
