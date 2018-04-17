@@ -22,29 +22,29 @@
 					<div class="flex-md-row d-flex d-md-300 flex-nowrap container-fluid justify-content-center">
             			<div class="row">
             				<div class="col-md-5 col-xs-12 order-1 order-md-1">
-	            				<p>主張</p>
+	            				<strong>主張</strong>
 						   		<p><%= @blog.claim1 %></p>
 						   	</div>
 					   		<div class="col-md-5 col-xs-12 order-4 order-md-2">
-	    				    	<p>対比軸</p>
+	    				    	<strong>対比軸</strong>
 								<p><%= @blog.claim2 %></p>
 							</div>
 
             				<div class="col-md-5 col-xs-12 order-2 order-md-3">
-	            				<p>根拠1</p>
+	            				<strong>根拠1</strong>
 						   		<p><%= @blog.basis1 %></p>
 						   	</div>
 					   		<div class="col-md-5 col-xs-12 order-5 order-md-4">
-	    				    	<p>根拠2</p>
+	    				    	<strong>根拠2</strong>
 								<p><%= @blog.basis2 %></p>
 							</div>
 
             				<div class="col-md-5 col-xs-12 order-3 order-md-5">
-	            				<p>具体例1</p>
+	            				<strong>具体例1</strong>
 						   		<p class="border-bottom pb-2"><%= @blog.example1 %></p>
 						   	</div>
 					   		<div class="col-md-6 col-xs-12 order-6 order-md-6">
-	    				    	<p>具体例2</p>
+	    				    	<strong>具体例2</strong>
 								<p class="border-bottom pb-2"><%= @blog.example2 %></p>
 							</div>
  						</div>
@@ -52,8 +52,15 @@
 			</section>
 
 			<section class="section2 mb-4">
-					<p class="letter">要約</p>
-					<p class="row letter"><%= @blog.body %></p>
+					<strong>要約</strong>
+					<p class="letter"><%= @blog.body %></p>
+					<% if @blog.tag == "要約文" %>
+						<% if @blog_option == nil %>
+						<% else %>
+							<%= link_to blog_path(@blog_option) do %>
+								<p class="text-right text-warning">意見文を読む</p><% end %>
+						<% end %>
+					<% end %>
 				<div class="text-right mb-3">
 					文責　<% if @blog.user == nil %>
 					退会済みユーザー

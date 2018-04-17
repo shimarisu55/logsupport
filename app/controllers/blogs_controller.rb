@@ -4,12 +4,13 @@ class BlogsController < ApplicationController
   def index
     @q = Blog.ransack(params[:q])
     @blogs = @q.result
-    @blogs = @blogs.page(params[:page]).per(10).order(:id)
+    @blogs = @blogs.page(params[:page]).per(24).order(:id)
   end
 
   def show
   	@blog = Blog.find(params[:id])
     @post_comment = PostComment.new
+    @blog_option = Blog.find_by(user_id:@blog.user_id,author:@blog.author,source:@blog.source,tag:"意見文")
   end
 
   def edit

@@ -4,7 +4,6 @@
 
 p.letter{ 
 	letter-spacing: 0.1em;
-  	padding:0 10%; 
 }
 .block{
 	display: block; 
@@ -27,6 +26,7 @@ p.letter{
   height:80px;
   width:80px;
 }
+
 
 @media screen and (max-width:425px) {
   .icon-size {
