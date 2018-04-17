@@ -18,3 +18,4 @@ class User < ApplicationRecord
   acts_as_paranoid# column_type: 'boolean'
 
 end
+
