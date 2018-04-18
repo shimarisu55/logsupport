@@ -1,4 +1,4 @@
-
+	<div class="container">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
 		  	<div class="blog-post">
 		    	<h2 class="page-header">
@@ -76,6 +76,12 @@
 							<%= link_to blog_path(@blog_option) do %>
 								<p class="text-center text-warning"><span>意見文を読む</span>>><%= @blog_option.header %></p><% end %>
 						<% end %>
+					<% else %>
+						<% if @blog_resume == nil %>
+						<% else %>
+							<%= link_to blog_path(@blog_resume) do %>
+								<p class="text-center text-success"><span>要約文に戻る</span>>><%= @blog_resume.header %></p><% end %>
+						<% end %>
 					<% end %>
 
 				<div class="text-right mb-3">
@@ -110,7 +116,7 @@
 				<% else %>
 					<div class="container-fluid">
 						<div class="row border">
-							<div class="col-xs-5 btn btn-default text-center text-dark">
+							<div class="col-xs-6 btn btn-default text-center text-dark">
 								<% if @blog.favorited_by?(current_user) %>
 							      <%= link_to blog_favorites_path(@blog),class: "text-dark", method: :delete,remote:true do %>
 							      <i class="glyphicon glyphicon-heart", id="favorite", id="favoritelink", aria-hidden="true" style="color: red;"></i>　いいね！<% end %>
@@ -119,7 +125,7 @@
 							      <i class="glyphicon glyphicon-heart", id="favorite", id="favoritelink", aria-hidden="true"></i>　いいね！<% end %>
 								<% end %>
 							</div>
-							<div class="col-xs-5 btn btn-default text-center" id="sampleButton2">
+							<div class="col-xs-6 btn btn-default text-center" id="sampleButton2">
 								コメントする
 							</div>
 						</div>
@@ -148,6 +154,7 @@
 				</div>
 				<% end %>
 		</div>
+	</div>
 	
 
 	<div class="modal fade　mt-5" id="sampleModal2" tabindex="-1">

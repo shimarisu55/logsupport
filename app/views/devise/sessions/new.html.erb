@@ -1,48 +1,32 @@
-<div class="text-center mt-5 col-xs-12 col-sm-8 col-md-4  col-lg-3 mx-auto">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<form class="form-signin">
-    <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">ログイン</h1>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"inputEmail", placeholder:"Email address" %>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <%= f.password_field :password, autocomplete: "off",id:"inputPassword",class:"form-control", placeholder:"Password" %>
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> Remember me
-        </label>
-    </div>
-    <%= f.submit "ログイン",class:"btn btn-primary btn-block action" %>
-    <%= render "devise/shared/links" %>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-</form><% end %>
-</div>
+  <div class="bg-image">
+    <div class="container box-size">
+      <h1 class="mb-5">対話を楽しもう。</h1>
+          <div class="left-box col-xs-12 col-sm-4 col-md-3">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <form class="form-signin">
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"inputEmail", placeholder:"メールアドレス" %>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <%= f.password_field :password, autocomplete: "off",id:"inputPassword",class:"form-control", placeholder:"パスワード" %>
+                <%= f.submit "ログイン",class:"btn btn-success btn-block action" %>
+            </form><% end %>
+          </div>
 
-<!-- <h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="right-box col-xs-12 col-sm-7 col-sm-offset-1 col-md-8 col-md-offset-1">
+            <h5>教養をつける。</h5>
+            <h5>自分の意見を考える。</h5>
+            <h5>誰かに承認をもらう。</h5>
+            <h5>国語の勉強って楽しいんです。</h5>
+            <h5>LogSupportは先生要らずの無料小論文SNSサイトです。</h5>
+            </br>
+            <%= link_to how_to_index_path, class: "text-white" do %>
+            <div class="btn btn-primary btn-position">使い方はこちら</div>
+            <% end %>
+          </div>
+      </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+  
 
-<%= render "devise/shared/links" %>
-
- -->

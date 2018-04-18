@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
   attachment :image
   has_many :blogs, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -14,8 +15,7 @@ class User < ApplicationRecord
   def group_usered_by?(group)
     group_users.where(group_id: group.id).exists?
   end
-
-  acts_as_paranoid# column_type: 'boolean'
+acts_as_paranoid
 
 end
 

@@ -31,7 +31,7 @@
         <% if user_signed_in? %>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active nav-link">
-            <%= link_to 'HOME',blogs_path,class:"text-white" %><span class="sr-only">(current)</span>
+            <%= link_to 'トップページ',blogs_path,class:"text-white" %><span class="sr-only">(current)</span>
           </li>
           <li class="nav-item nav-link">
             <%= link_to 'My Page', user_path(current_user),class:"text-white" %>
@@ -49,7 +49,6 @@
         </ul>
         <% else %>
                         <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
-                          <li>
                           <li class="nav-item nav-link">
                           <%= link_to 'トップページ', blogs_path, class:"text-white" %>
                           </li>
@@ -59,21 +58,14 @@
                           <li class="nav-item nav-link">
                           <%= link_to "ログイン", new_user_session_path,class:"text-white" %>
                           </li>
-                          <li>
-                          <li class="nav-item nav-link">
-                          <%= link_to "使い方", how_to_index_path,class:"text-white" %>
-                          </li>
                         </ul>
         <% end %>
       </div>
     </nav>
 
+
   	</header>
-  	<content class="link">
-  		<div class="container">
         	<%= yield %>
-		  </div>
-	  </content>
 	  <footer>
 	  </footer>
 

@@ -25,3 +25,36 @@
 	}
 }
 
+
+.bg-image {
+    padding:100px 0 100px 0;
+    background-image:url("pencil.jpg");
+    background-size:cover;
+    color:white;
+    opacity:0.7;
+
+}
+.bg-image h1 {
+    letter-spacing:6px;
+}
+
+.box-size {
+    margin:0 auto;
+    padding:0 0 100px 0;
+}
+
+.left-box {
+    height:auto;
+}
+
+.right-box {
+    height:350px;
+    padding:20px;
+
+}
+.right-box h5 {
+    margin-bottom:20px;
+}
+.btn-position {
+    float:right;
+}
