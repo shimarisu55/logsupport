@@ -1,4 +1,4 @@
-<div class="mt-5">
+<div class="mt-5 container">
     <h1 class="header-size">新しい記事を作成する</h1>
        <% if @blog.errors.any? %>
         <div id="error_explanation" class="alert alert-danger">
@@ -10,7 +10,6 @@
         <% end %>
 
    <%= form_for(@blog) do |f| %>
-    <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-md-4">
                  <p>形式</p>
@@ -97,7 +96,6 @@
             <p id="nowlength"> </p>
             <p id="inputlength"></p>
         </div>
-    </div>
      <div class="btn inline">
      	<%= f.submit '投稿する',class:"btn btn-primary btn-block" %>
      </div>

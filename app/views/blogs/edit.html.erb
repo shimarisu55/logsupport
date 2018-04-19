@@ -1,7 +1,6 @@
 <div class="container mt-5">
 <h1 class="header-size">記事編集</h1>
    <%= form_for(@blog) do |f| %>
-        <div class="container">
        <div class="row">
              <p>形式</p>
              <%= f.select :tag,  [["要約文", "要約文"],["意見文", "意見文"]] %>
@@ -75,7 +74,6 @@
             <p id="nowlength"></p>　
             <p id="inputlength"></p>
         </div>
-    </div>
      <div class="btn inline">
      	<%= f.submit '修正する',class:"btn btn-primary btn-block" %>
      </div>
