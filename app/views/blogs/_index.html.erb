@@ -1,4 +1,4 @@
-<div class="container-fluid mb-2">
+<div class="mb-2">
 <div class="row">
     <% blogs.each do |blog| %>
         <% if blog.tag == "意見文" %>
@@ -25,12 +25,12 @@
     						問題集：<%= blog.book %>
     					</li>
     				</ul>
-                    <h3 class="mb-0">
+                    <h4 class="mb-0">
                         <div class="text-dark media-heading mb-2">
                         	<%= link_to blog_path(blog),class:"text-dark" do %>
                         		<%= blog.header %><% end %>
                 		</div>
-                    </h3>
+                    </h4>
                     <p class="card-text mb-3">
                     	<ul class="list-inline">
                     	    <li class="list-inline-item">主張　</li>
@@ -43,16 +43,16 @@
                 	</p>
                 	<ul class="list-inline text-right">
                         <% if current_user == nil %>
-                            <li class="list-inline-item glyphicon glyphicon-heart" aria-hidden="true">
+                            <li class="list-inline-item fa fa-heart" aria-hidden="true">
                                 <%= blog.favorites.count %></li>
                 		<% elsif blog.favorited_by?(current_user) %>
-                			<li class="list-inline-item glyphicon glyphicon-heart" aria-hidden="true" style="color: red;">
+                			<li class="list-inline-item fa fa-heart" aria-hidden="true" style="color: red;">
                                 <%= blog.favorites.count %></li>
     					<% else %>
-    			      		<li class="list-inline-item glyphicon glyphicon-heart" aria-hidden="true">
+    			      		<li class="list-inline-item fa fa-heart" aria-hidden="true">
                                 <%= blog.favorites.count %></li>
                 		<% end %>
-                		    <li class="list-inline-item glyphicon glyphicon-comment" aria-hidden="true">
+                		    <li class="list-inline-item fa fa-comment" aria-hidden="true">
     					    <%= blog.post_comments.count %></li>
     					    <li class="list-inline-item">
     					    	<%= link_to 'もっと詳しく', blog_path(blog),class:"text-dark" %>

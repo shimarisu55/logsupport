@@ -1,13 +1,16 @@
-<div class="container mt-5">
+<div class="container">
 			<p>先輩が書いた記事を検索してみよう</p>
-	<div class="row text-right mb-3">
-			<%= search_form_for @q do |f| %>
-			<div class="col-xs-12 col-md-3"><%= f.search_field :author_cont, placeholder: "著者" %></div>
-			<div class="col-xs-12 col-md-3"><%= f.search_field :source_cont, placeholder: "出典" %></div>
-			<div class="col-xs-12 col-md-3"><%= f.search_field :book_cont, placeholder: "問題集" %></div>
-			<div class=""><%= f.submit '検索', class:"btn btn-default btn-small" %></div>
+	<div class="mb-3">
+			<%= search_form_for @q ,class:"col-12 flex" do |f| %>
+				<%= f.search_field :author_cont, class:"col-md-3", placeholder: "著者" %>
+				<%= f.search_field :source_cont, class:"col-md-3", placeholder: "出典" %>
+				<%= f.search_field :book_cont, class:"col-md-3", placeholder: "問題集" %>
+				<%= f.submit '検索', class:"btn btn-default btn-small pull-right" %>
 			<% end %>
 	</div>
+	<div class="clearfix mb-3"></div>
+
+	<div class="border mb-3"></div>
 
 	<%= render 'blogs/index', blogs: @blogs %>
 

@@ -27,6 +27,13 @@ p.letter{
   width:80px;
 }
 
+// index
+
+.flex {
+  display:flex;
+  justify-content: space-between;
+}
+
 @media screen and (max-width:425px) {
   .icon-size {
 	height:40px;
@@ -37,6 +44,9 @@ p.letter{
   }
   .header-size {
    font-size: 28px;
+  }
+  .flex {
+   display:block;
   }
 
 }

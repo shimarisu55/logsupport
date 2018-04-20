@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   	@blogs = @user.blogs.all
   	@users = User.all
-    @blogs = @blogs.page(params[:page]).per(10).order(:id)
+    @blogs = @blogs.page(params[:page]).per(12).order(:id)
   end
 
   def edit

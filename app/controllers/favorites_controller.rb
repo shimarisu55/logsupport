@@ -15,10 +15,9 @@ class FavoritesController < ApplicationController
 
         def show
             @blog = Blog.find(params[:blog_id])
-            # @favorites = @blog.favorites
         end
         def index
             @user = User.find(params[:user_id])
-            @favorite = Favorite.page(params[:page]).reverse_order
+            @favorites = @user.favorites.page(params[:page])
         end
 end

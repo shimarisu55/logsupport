@@ -1,37 +1,33 @@
   <div class="bg-image">
-    <div class="container box-size">
-      <h1 class="mb-5">対話を楽しもう。</h1>
-      
-          <div class="left-box col-xs-12 col-sm-4 col-md-3">
+  <div class="container">
+    <h1 class="mb-5">対話を楽しもう。</h1>
+    <div class="box-size">
+          <div class="left-box col-12 col-md-4 col-lg-3 mb-3">
             <div class="form-body">
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                     <%= devise_error_messages! %>
                 <div class="form-group has-icon">
                     <label class="control-label sr-only" for="inputEmail">Name</label>
                     <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"名前"%>
-                    <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
                 </div>
                 <div class="form-group has-icon">
                     <label class="control-label sr-only" for="inputEmail">Email</label>
                     <%= f.email_field :email, class:"form-control", id:"inputEmail", placeholder:"メールアドレス"%>
-                    <span class="fa fa-envelope form-control-icon" aria-hidden="true"></span>
                 </div>
                 <div class="form-group has-icon">
                     <label class="control-label sr-only" for="inputEmail">Password</label>
                     <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputPassword", placeholder:"パスワード" %>
-                    <span class="fa fa-lock form-control-icon" aria-hidden="true"></span>
                 </div>
                 <div class="form-group has-icon">
                     <label class="control-label sr-only" for="inputEmail">Password</label>
                     <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", id:"inputConfirmPassword", placeholder:"パスワード確認" %>
-                     <span class="fa fa-check-circle-o form-control-icon" aria-hidden="true"></span>
                 </div>
                     <%= f.submit "新規登録", class:"btn btn-success btn-block btn-base-1 mt-20" %>
                 <% end %>
             </div>
           </div>
 
-          <div class="right-box col-xs-12 col-sm-7 col-sm-offset-1 col-md-8 col-md-offset-1">
+          <div class="right-box col-12 col-md-7 col-lg-8">
             <h5>教養をつける。</h5>
             <h5>   自分の意見を考える。</h5>
             <h5>誰かに承認をもらう。</h5>
@@ -43,6 +39,8 @@
             <% end %>
           </div>
       </div>
+    </div>
+    </div>
   </div>
 
     

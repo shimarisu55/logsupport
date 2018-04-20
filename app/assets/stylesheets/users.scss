@@ -7,7 +7,7 @@
   width:80px;
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width:576px) {
 .clearfix::after {
     content:"";
     display:block;
@@ -26,29 +26,33 @@
 .box-size h1{
     font-size:36px;
 }
-
+.box-size {
+    flex-direction: column;
+}
 }
 
 
 .bg-image {
-    padding:100px 0 100px 0;
+    padding:100px 0 200px 0;
     background-image:url("pencil.jpg");
     background-size:cover;
     color:white;
     opacity:0.7;
+    margin-top:-50px;
 
 }
 .bg-image h1 {
-    letter-spacing:6px;
+    letter-spacing:5px;
 }
 
 .box-size {
     margin:0 auto;
-    padding:0 0 100px 0;
+    display:flex;
 }
 
 .left-box {
     height:auto;
+    margin-right:100px;
 }
 
 .right-box {
