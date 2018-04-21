@@ -18,18 +18,19 @@
         			出典：<%= @blog.source %>
         		</div>
 		    </div>
-					<div class="flex-md-row flex-nowrap justify-content-center">
+					<div class=" flex-nowrap justify-content-center">
             			<div class="row">
-            				<div class="col-md-6 col-12 order-1 order-md-1">
+            				<div class="col-md-5 col-12 order-1 order-md-1">
 	            				<strong>主張</strong>
 						   		<p><%= @blog.claim1 %></p>
 						   	</div>
-					   		<div class="col-md-6 col-12 order-4 order-md-2">
+					   		<div class="col-md-5 col-12 order-4 order-md-2">
 	    				    	<strong>対比軸</strong>
 								<p><%= @blog.claim2 %></p>
 							</div>
-
-            				<div class="col-md-6 col-12 order-2 order-md-3">
+						</div>
+						<div class="row">
+            				<div class="col-md-5 col-12 order-2 order-md-3">
 	            				<strong>根拠1</strong>
 	            				<% if @blog.basis1 == "" %>
 	            				<p>なし</p>
@@ -37,7 +38,7 @@
 						   		<p><%= @blog.basis1 %></p>
 						   		<% end %>
 						   	</div>
-					   		<div class="col-md-6 col-12 order-5 order-md-4">
+					   		<div class="col-md-5 col-12 order-5 order-md-4">
 	    				    	<strong>根拠2</strong>
 	    				    	<% if @blog.basis2 == "" %>
 	            				<p>なし</p>
@@ -45,8 +46,10 @@
 								<p><%= @blog.basis2 %></p>
 								<% end %>
 							</div>
+						</div>
 
-            				<div class="col-md-6 col-12 order-3 order-md-5">
+						<div class="row">
+            				<div class="col-md-5 col-12 order-3 order-md-5">
 	            				<strong>具体例1</strong>
 	            				<% if @blog.example1 == "" %>
 	            				<p>なし</p>
@@ -54,7 +57,7 @@
 						   		<p class="border-bottom pb-2"><%= @blog.example1 %></p>
 						   		<% end %>
 						   	</div>
-					   		<div class="col-md-6 col-12 order-6 order-md-6">
+					   		<div class="col-md-5 col-12 order-6 order-md-6">
 	    				    	<strong>具体例2</strong>
 	    				    	<% if @blog.example2 == "" %>
 	            				<p>なし</p>
@@ -111,9 +114,10 @@
 						<%= link_to "削除", blog_path(@blog), method: :delete,"data-confirm" => "本当に削除しますか"  %>
 					<% end %>
 				</div>
-				<% if current_user == nil %>
-				<% else %>
-						<div class="row border">
+
+				<div class="row border">
+					<% if current_user == nil %>
+					<% else %>
 							<div class="col-6 btn btn-default text-center text-dark">
 								<% if @blog.favorited_by?(current_user) %>
 							      <%= link_to blog_favorites_path(@blog),class: "text-dark", method: :delete,remote:true do %>
@@ -126,8 +130,8 @@
 							<div class="col-6 btn btn-default text-center" id="sampleButton2">
 								コメントする
 							</div>
-						</div>
-				<% end %>
+					<% end %>
+				</div>
 
 				<% @blog.post_comments.each do |post_comment| %>
 				<div class="media comment border-bottom">
