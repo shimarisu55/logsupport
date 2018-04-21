@@ -18,8 +18,7 @@
         			出典：<%= @blog.source %>
         		</div>
 		    </div>
-		    <section class="section mb-4">
-					<div class="flex-md-row d-flex d-md-300 flex-nowrap container-fluid justify-content-center">
+					<div class="flex-md-row flex-nowrap justify-content-center">
             			<div class="row">
             				<div class="col-md-6 col-12 order-1 order-md-1">
 	            				<strong>主張</strong>
@@ -65,7 +64,6 @@
 							</div>
  						</div>
 					</div>
-			</section>
 
 			<section class="section2 mb-4">
 					<strong>要約</strong>
@@ -83,6 +81,7 @@
 								<p class="text-center text-success"><span>要約文に戻る</span>>><%= @blog_resume.header %></p><% end %>
 						<% end %>
 					<% end %>
+			</section>
 
 				<div class="text-right mb-3">
 					文責　<% if @blog.user == nil %>
@@ -129,7 +128,6 @@
 							</div>
 						</div>
 				<% end %>
-			</section>
 
 				<% @blog.post_comments.each do |post_comment| %>
 				<div class="media comment border-bottom">
