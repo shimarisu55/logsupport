@@ -3,5 +3,6 @@ class HowToController < ApplicationController
   end
 
   def show
+  	
   end
 end

@@ -8,9 +8,14 @@ class GroupUsersController < ApplicationController
   end
 
   def index
-  	@users = User.all
     @group = Group.find(params[:group_id])
-    # @q = GroupUser.search
+    @q = User.ransack(params[:q])
+    if params[:q][:name_cont] == ""
+      @id = 1
+    else
+      @users = @q.result
+      @id = 2
+    end
   end
 
   def create
@@ -26,10 +31,6 @@ class GroupUsersController < ApplicationController
     group_user.destroy
     redirect_to group_path(group_user.group.id)
   end
-
-  # def search
-  #   @group_users = User.where(params[name: user.name, group_id: @group.id])
-  # end
 
   private
   def search_params
