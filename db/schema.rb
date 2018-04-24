@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 20180424052634) do
 
   create_table "blogs", force: :cascade do |t|
-    t.integer "blog_id"
     t.integer "post_image_id"
     t.string "header"
     t.text "body"
@@ -74,18 +73,18 @@ ActiveRecord::Schema.define(version: 20180424052634) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.integer "user_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
     t.string "image_id"
     t.text "descreption"
     t.string "tag"
-    t.datetime "deleted_at"
     t.string "provider"
     t.string "uid"
     t.string "nickname"
     t.string "image_url"
-    t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
