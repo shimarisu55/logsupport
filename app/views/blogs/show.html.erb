@@ -15,7 +15,8 @@
 	                <% end %>
         		</div>
         		<div class="text-right mb-3">
-        			出典：<%= @blog.source %></br>
+        			<strong>著者：</strong><%= @blog.author %>　
+        			<strong>出典：</strong><%= @blog.source %></br>
         		<% if @blog.user == current_user %>
 					<%= link_to "編集", edit_blog_path %>　
 					<%= link_to "削除", blog_path(@blog), method: :delete,"data-confirm" => "本当に削除しますか"  %>
@@ -109,10 +110,10 @@
 					<div class="col-6 btn btn-default text-center text-dark">
 						<div id="favorite-btn-<%= @blog.id %>"><%= render 'blogs/favorite', blog: @blog %></div>
 					</div>
-					<% end %>
 					<div class="col-6 btn btn-default text-center" id="sampleButton2">
 								コメントする
 					</div>
+					<% end %>
 				</div>
 
 				<% @blog.post_comments.each do |post_comment| %>
