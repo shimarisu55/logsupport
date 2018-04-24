@@ -3,11 +3,10 @@ Rails.application.routes.draw do
 
   get 'how_to/show'
 
-  get '/auth/:provider/callback' => 'sessions#create'
   get 'group_users/index'
   root 'how_to#show'
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users, only: [:show, :edit, :index, :update, :destroy] do
     resources :blogs, only:[:index]
