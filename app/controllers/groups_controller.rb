@@ -1,11 +1,14 @@
 class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
+
     @users_blogs = []
     @group.users.each do |user|
-      @users_blogs << user.blogs
+      user.blogs.each do |blog|
+        @users_blogs << blog
+      end
     end
-    #@users_blogs = @users_blogs.page(params[:page]).per(5).order(:id)
+    @users_blogs = Kaminari.paginate_array(@users_blogs).page(params[:page]).per(25)
   end
 
   def index
@@ -13,7 +16,6 @@ class GroupsController < ApplicationController
 
   def new
   	@group = Group.new
-  	#@groups = Group.find(params[:id])
     @user = User.find(current_user[:id])
     @group_user = GroupUser.new
     @users = User.all
@@ -48,8 +50,6 @@ class GroupsController < ApplicationController
   	params.require(:group).permit(:name, :descreption, :group_user_id, :user_id, :image)
 
   end
-  # def group_user_params
-  #   params.require(:group_user).permit(:user_id, :group_id)
-  # end
+
 
 end

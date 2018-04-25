@@ -17,7 +17,8 @@
                   <% end %>
             </div>
             <div class="text-right mb-3">
-              出典：<%= @blog.source %>
+              <strong>著者：</strong><%= @blog.author %>　
+              <strong>出典：</strong><%= @blog.source %></br>
             </div>
         </div>
           <div class=" flex-nowrap justify-content-center">
@@ -78,6 +79,7 @@
 <div class="row flex">
 <%= form_for :blog, url: new_blogs_path do |f| %>
   <%= f.hidden_field :tag %>
+  <%= f.hidden_field :group_id %>
   <%= f.hidden_field :user_id %>
   <%= f.hidden_field :header %>
   <%= f.hidden_field :author %>
@@ -95,6 +97,7 @@
 
 <%= form_for :blog, url: blogs_path do |f| %>
 　<%= f.hidden_field :tag %>
+  <%= f.hidden_field :group_id %>
   <%= f.hidden_field :user_id %>
   <%= f.hidden_field :header %>
   <%= f.hidden_field :author %>

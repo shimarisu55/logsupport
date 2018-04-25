@@ -63,8 +63,8 @@ class BlogsController < ApplicationController
 
   private
   def blog_params
-  	params.require(:blog).permit(:user_id, :header, :body, :author,:source, :tag,
-      :claim1, :claim2, :basis1, :basis2, :example1, :example2, :book)
+  	params.require(:blog).permit(:user_id, :header, :body, :author,:source, :book, :tag,
+      :claim1, :claim2, :basis1, :basis2, :example1, :example2, :group_id)
   end
 
 
