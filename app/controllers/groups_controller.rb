@@ -1,13 +1,11 @@
 class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
-
     @users_blogs = []
     @group.users.each do |user|
       @users_blogs << user.blogs
     end
-
-    
+    #@users_blogs = @users_blogs.page(params[:page]).per(5).order(:id)
   end
 
   def index

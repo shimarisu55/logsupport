@@ -1,0 +1,2 @@
+$('#favorite-btn-<%= @blog.id %>').html("<%= j(render 'blogs/favorite', blog: @blog) %>")
+$('#favorite_count-<%= @blog.id %>').html("<%= j(render 'blogs/favorite_count', blog: @blog) %>")

@@ -1,8 +1,8 @@
 <div class="bg-image">
-  <div class="container">
-    <h1 class="mb-5">対話を楽しもう。</h1>
+  <div class="container"></br>
+    <h1 class="mb-5">LogSupport</h1>
     <div class="box-size">
-          <div class="eft-box col-12 col-md-4 col-lg-3 mb-3">
+          <div class="left-box col-12 col-md-4 col-lg-3 mb-3">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <form class="form-signin">
                 <label for="inputEmail" class="sr-only">Email address</label>
@@ -10,22 +10,24 @@
                 <label for="inputPassword" class="sr-only">Password</label>
                 <%= f.password_field :password, autocomplete: "off",id:"inputPassword",class:"form-control", placeholder:"パスワード" %>
                 <%= f.submit "ログイン",class:"btn btn-success btn-block action" %>
-            </form><% end %>
-          </div>
-
-          <div class="right-box col-12 col-md-7 col-lg-8">
-            <h5>教養をつける。</h5>
-            <h5>自分の意見を考える。</h5>
-            <h5>誰かに承認をもらう。</h5>
-            <h5>国語の勉強って楽しいんです。</h5>
-            <h5>LogSupportは先生要らずの無料小論文SNSサイトです。</h5>
-            </br>
-            <%= link_to how_to_index_path, class: "text-white" do %>
-            <div class="btn btn-primary btn-position">使い方はこちら</div>
-            <% end %>
-          </div>
+            </form><% end %></br></br>
+          </div></br></br></br>
       </div>
   </div>
+
+  <!-- <div class="bg-image">
+<div class="container text-center"></br>
+    <h1 class="mb-5">LogSupport</h1>
+    </br></br></br>
+            <h5>読んで書いて感想をもらおう</h5>
+            <h5>思想や文化の学び直しに</h5>
+            </br></br></br></br>
+    <%= link_to blogs_path, class: "text-white col-md-6" do %>
+    <div class="btn btn-primary btn-large">トップページへ</div><% end %>
+    <%= link_to how_to_index_path, class: "text-white col-md-6" do %>
+    <div class="btn btn-success btn-large">使い方はこちら</div><% end %>
+    </br></br>
+</div> -->
 
 
 

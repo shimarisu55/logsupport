@@ -15,8 +15,13 @@
 	                <% end %>
         		</div>
         		<div class="text-right mb-3">
-        			出典：<%= @blog.source %>
-        		</div>
+        			<strong>著者：</strong><%= @blog.author %>　
+        			<strong>出典：</strong><%= @blog.source %></br>
+        		<% if @blog.user == current_user %>
+					<%= link_to "編集", edit_blog_path %>　
+					<%= link_to "削除", blog_path(@blog), method: :delete,"data-confirm" => "本当に削除しますか"  %>
+				<% end %>
+				</div>
 		    </div>
 					<div class=" flex-nowrap justify-content-center">
             			<div class="row">
@@ -42,12 +47,12 @@
 						   		<p class="border-bottom pb-2"><%= @blog.example1 %></p>
 						   		<% end %>
 						   	</div>
-						   	
+
 					   		<div class="col-md-5 col-12 order-4 order-md-2">
 	    				    	<strong>対比軸</strong>
 								<p><%= @blog.claim2 %></p>
 							</div>
-            				
+
 					   		<div class="col-md-5 col-12 order-5 order-md-4">
 	    				    	<strong>根拠2</strong>
 	    				    	<% if @blog.basis2 == "" %>
@@ -88,53 +93,31 @@
 
 				<div class="text-right mb-3">
 					文責　<% if @blog.user == nil %>
-					退会済みユーザー
-					<% else %>
-					<%= link_to user_path(@blog.user) do %>
-					<%= @blog.user.name %><% end %>
-					<% end %></br>
-					<% if current_user == nil %>
-                        <i class="fa fa-heart" aria-hidden="true"></i>
-					      <%= link_to blog_favorites_path(@blog) do %>
-					      	<%= @blog.favorites.count %><% end %>
-					<% elsif @blog.favorited_by?(current_user) %>
-						<%= link_to blog_favorites_path(@blog), method: :get do %>
-					      <i class="fa fa-heart", id="favoritelink", aria-hidden="true" style="color: red;"></i>
-					      	<%= @blog.favorites.count %><% end %>
-					<% else %>
-					      <i class="fa fa-heart" aria-hidden="true"></i>
-					      <%= link_to blog_favorites_path(@blog) do %>
-					      	<%= @blog.favorites.count %><% end %>
-					<% end %>　
-					<i class="fa fa-comment" aria-hidden="true"></i>
-					<%= @blog.post_comments.count %>　
+							退会済みユーザー
+						<% else %>
+							<%= link_to user_path(@blog.user) do %>
+							<%= @blog.user.name %><% end %>
+						<% end %></br>
 
-					<% if @blog.user == current_user %>
-						<%= link_to "編集", edit_blog_path %>　
-						<%= link_to "削除", blog_path(@blog), method: :delete,"data-confirm" => "本当に削除しますか"  %>
+					<%= link_to blog_favorites_path(@blog), class:"text-dark" do %>
+						<div id="favorite_count-<%= @blog.id %>"><%= render 'blogs/favorite_count', blog: @blog %></div>
 					<% end %>
 				</div>
 
-				<div class="row border">
+				<div class="row border mb-3">
 					<% if current_user == nil %>
 					<% else %>
-							<div class="col-6 btn btn-default text-center text-dark">
-								<% if @blog.favorited_by?(current_user) %>
-							      <%= link_to blog_favorites_path(@blog),class: "text-dark", method: :delete,remote:true do %>
-							      <i class="fa fa-heart", id="favorite", aria-hidden="true" style="color: red;"></i>　いいね！<% end %>
-								<% else %>
-							      <%= link_to blog_favorites_path(@blog),class: "text-dark", method: :post,remote:true do %>
-							      <i class="fa fa-heart", id="favorite", aria-hidden="true"></i>　いいね！<% end %>
-								<% end %>
-							</div>
-							<div class="col-6 btn btn-default text-center" id="sampleButton2">
+					<div class="col-6 btn btn-default text-center text-dark">
+						<div id="favorite-btn-<%= @blog.id %>"><%= render 'blogs/favorite', blog: @blog %></div>
+					</div>
+					<div class="col-6 btn btn-default text-center" id="sampleButton2">
 								コメントする
-							</div>
+					</div>
 					<% end %>
 				</div>
 
 				<% @blog.post_comments.each do |post_comment| %>
-				<div class="media comment border-bottom">
+				<div class="media comment border-bottom mb-3">
 					<div class="media-left media-object mr-2 text-center">
 						<%= link_to user_path(post_comment.user) do %>
 						<%= attachment_image_tag post_comment.user, :image, :fill, 80,80, format: 'jpeg', class: "block icon-size", fallback: "no_image.jpg" %><% end %>
@@ -184,11 +167,4 @@
 		});
 	});
 
-	// $( function() {
-	// 	$('#favorite').click( function () {
-	// 		$.get("blog_path(@blog)"+$(this).val(),function(data){
-	// 			$("#favoritelink").html(data);
-	// 		});
-	// 	});
-	// });
 	</script>

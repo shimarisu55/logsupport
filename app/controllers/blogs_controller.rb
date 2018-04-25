@@ -27,14 +27,26 @@ class BlogsController < ApplicationController
   end
 
   def create
+    Blog.create!(blog_params)
+    redirect_to user_path(current_user[:id])
+  end
+
+  def confirm
+    @blog = Blog.new(blog_params)
     @user = User.find(current_user[:id])
-  	@blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
-  	if @blog.save
-      redirect_to user_path(current_user[:id])
+    if @blog.valid?
+      render :action => 'confirm'
     else
-      render :new
+      render :action => 'new'
     end
+  end
+  
+  def back
+    @blog = Blog.new(blog_params)
+    @user = User.find(current_user[:id])
+    @blog.user_id = current_user.id
+    render :new
   end
 
   def update
@@ -51,7 +63,7 @@ class BlogsController < ApplicationController
 
   private
   def blog_params
-  	params.require(:blog).permit(:header, :body, :author,:source, :tag,
+  	params.require(:blog).permit(:user_id, :header, :body, :author,:source, :tag,
       :claim1, :claim2, :basis1, :basis2, :example1, :example2, :book)
   end
 

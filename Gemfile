@@ -73,3 +73,5 @@ gem 'ransack'
 gem "font-awesome-rails"
 gem "kaminari"
 gem "nokogiri"
+gem 'omniauth'
+gem 'omniauth-twitter'
