@@ -9,10 +9,12 @@
             <h5>思想や文化の学び直しに</h5>
             </br></br></br></br>
     <%= link_to blogs_path, class: "text-white col-md-6" do %>
-    <div class="btn btn-primary btn-large">トップページへ</div><% end %>
+    <div class="btn btn-success btn-large">トップページへ</div><% end %>
     <%= link_to how_to_index_path, class: "text-white col-md-6" do %>
     <div class="btn btn-success btn-large">使い方はこちら</div><% end %>
     </br></br>
+    <%= link_to user_twitter_omniauth_authorize_path do %>
+    <div class="btn btn-primary btn-large texit-white"><i class="fa fa-twitter"></i>　twitterでログイン</div><% end %>
 </div>
 </div>
 
