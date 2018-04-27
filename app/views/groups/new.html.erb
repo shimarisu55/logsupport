@@ -5,7 +5,7 @@
 				<button type="button" id="sampleButton" class="btn btn-secondary pull-right new-page">
 			グループ作成</button></h2>
 		<p>個人的に練習したい時は一人のままで。誰かに見てもらいたい場合はグループに招待しよう。</p>
-		<% @user.groups.each do |group| %>s
+		<% @user.groups.each do |group| %>
 		<div class="media border-bottom box"><%= link_to group_path(group.id) do %>
 			<div class="media-left media-object mr-2 text-center mt-2">
 				<%#= attachment_image_tag group, :image, format: 'jpeg', class: "block size",fallback: "no_image.jpg", size: '80x80' %>
@@ -14,9 +14,13 @@
 			<div class="media-body media-obfect"></br>
 				<h4 class="media-heading text-dark new-page">
 					<%= group.name %>（<%= group.users.count %>）</h4>
-
+				
 				<h6 class="text-right text-dark">
-					<%= link_to "削除", group_path(group.id),class: "text-dark new-page", method: :delete, "data-confirm" => "本当に削除しますか" %>
+					<% if group.manage_id == current_user.id %>
+					<%= link_to "Groupを削除", group_path(group.id),class: "text-dark new-page", method: :delete, "data-confirm" => "本当に削除しますか" %>
+					<% else %>
+					<%= link_to "退会", group_group_user_path(group.id, current_user.id), class: "text-dark text-right", method: :delete, "data-confirm" => "本当に退会しますか" %>
+					<% end %>
 				</h6>
 			</div><% end %>
 		</div>

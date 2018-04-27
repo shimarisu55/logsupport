@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
+    @group_manager = User.find_by(id: @group.manage_id)
 
     @users_blogs = []
     @group.users.each do |user|
@@ -15,7 +16,7 @@ class GroupsController < ApplicationController
   end
 
   def new
-  	@group = Group.new
+    @group = Group.new
     @user = User.find(current_user[:id])
     @group_user = GroupUser.new
     @users = User.all
@@ -24,6 +25,7 @@ class GroupsController < ApplicationController
 
   def create
   	@group = Group.new(group_params)
+    @group.manage_id = current_user.id
     @group.save
     group_user = GroupUser.new
     group_user.user_id = current_user.id
@@ -47,7 +49,7 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-  	params.require(:group).permit(:name, :descreption, :group_user_id, :user_id, :image)
+  	params.require(:group).permit(:name, :descreption, :group_user_id, :user_id, :image, :manage_id)
 
   end
 

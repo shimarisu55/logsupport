@@ -6,6 +6,11 @@
 		</div>
 		<div class="media-body media-obfect mb-1">
 			<h3><%= @group.name %></h3>
+            <% if @group_manager ==  nil %>
+                <p></p>
+                <% else %>
+                <p>Group管理者：<%= link_to user_path(@group_manager) do %><%= @group_manager.name %><% end %></p>
+                <% end %>
 			<%= @group.descreption %></br>
 			<h6 class="text-right text-dark">
                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalLong">
@@ -100,7 +105,11 @@
                     <h4 class="media-heading text-dark">
                         <%= user.name %>
                         <h6>
+                            <% if user.id == @group.manage_id %>
+                                グループの管理者
+                            <% else %>
                             <%= link_to "退会させる", group_group_user_path(@group.id, user.id), class: "text-dark text-right", method: :delete, "data-confirm" => "本当に退会させますか" %>
+                            <% end %>
                         </h6>
                     </h4>
                 </div>
@@ -112,9 +121,6 @@
                 <button type="button" class="btn btn-secondary">
                 友達を招待する</button>
                 <% end %>
-                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                    <span aria-hidden="true">&times;</span>
-                </button>
       </div>
     </div>
   </div>
