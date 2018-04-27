@@ -1,5 +1,4 @@
-<div class="mb-2">
-<div class="row">
+<div class="mb-2 row">
     <% blogs.each do |blog| %>
         <% if blog.tag == "要約文" && blog.group_id == nil %>
         <div class="col-md-6 col-lg-4">
@@ -16,7 +15,7 @@
                     	</li>
     	                <li class="list-inline-item label bg-secondary ">
     	                	著者：<%= blog.author  %>
-                    	</li>
+                     	</li>
     					<li class="list-inline-item label bg-secondary">
     						出典：<%= blog.source %>
     					</li>
@@ -62,10 +61,6 @@
         </div>
         <% end %>
     <% end %>
-</div>
-<%# if blogs.author == "著者" && blogs.source == "出典" && blogs.book == "問題集" %>
 <%= paginate blogs, class: "pagenate" %>
-<%# else %>
-<%# end %>
 </div>
 
