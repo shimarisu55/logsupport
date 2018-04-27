@@ -5,21 +5,21 @@ class User < ApplicationRecord
        :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
 
-  # attachment :image
- has_attached_file :image,
+   attachment :image
+# has_attached_file :image,
 # PaperClip用の設定
-:styles => {
-                      :thumb  => "100x100",
-                      :medium => "200x200",
-                      :large => "600x400"
-                    },
+#:styles => {
+#                      :thumb  => "100x100",
+#                      :medium => "200x200",
+#                      :large => "600x400"
+#                    },
 
 # S3用の設定
-:storage => :s3,
-:s3_credentials => "#{Rails.root}/config/s3.yml",
-:path => ":attachment/:id/:style.:extension"
+#:storage => :s3,
+#:s3_credentials => "#{Rails.root}/config/s3.yml",
+#:path => ":attachment/:id/:style.:extension"
 
-validates_attachment :image, content_type: { content_type: "image/jpeg" }
+# validates_attachment :image, content_type: { content_type: "image/jpeg" }
 
 
   has_many :blogs, dependent: :destroy
