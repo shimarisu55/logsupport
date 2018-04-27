@@ -10,12 +10,7 @@ class GroupUsersController < ApplicationController
   def index
     @group = Group.find(params[:group_id])
     @q = User.ransack(params[:q])
-    if params[:q][:name_cont] == ""
-      @id = 1
-    else
-      @users = @q.result
-      @id = 2
-    end
+    @users = @q.result
   end
 
   def create

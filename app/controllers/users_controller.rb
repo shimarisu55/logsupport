@@ -32,6 +32,7 @@ class UsersController < ApplicationController
   end
   private 
   def user_params
-      params.require(:user).permit(:name, :image, :descreption, :tag,:provider,:uid,:nickname,:image_url)
+      params.require(:user).permit(:name, :image, :descreption, :tag,:provider,:uid,:nickname,:image_url,
+        :image_file_name, :image_content_type, :image_file_size, :image_updated_at)
   end
 end

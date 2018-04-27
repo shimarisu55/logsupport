@@ -1,7 +1,8 @@
 <div class="container mt-5">
 	<div class="media comment border-bottom mb-4">
 		<div class="media-left media-object mr-2 text-center">
-			<%= attachment_image_tag @group, :image, format: 'jpeg', class: "block", fallback: "no_image.jpg", size:'80x80' %>
+			<%#= attachment_image_tag @group, :image, format: 'jpeg', class: "block", fallback: "no_image.jpg", size:'80x80' %>
+            <%= image_tag("no_image.jpg", size:'80x80' )%>
 		</div>
 		<div class="media-body media-obfect mb-1">
 			<h3><%= @group.name %></h3>
@@ -92,7 +93,8 @@
             <% @group.users.each do |user| %>
             <div class="media border-bottom">
                 <div class="media-left media-object mr-1 text-center">
-                    <%= attachment_image_tag user, :image, format: 'jpeg', class: "block",fallback: "no_image.jpg", size: '40x40' %>
+                    <%#= attachment_image_tag user, :image, format: 'jpeg', class: "block",fallback: "no_image.jpg", size: '40x40' %>
+                    <%= image_tag("no_image.jpg", size: '40x40') %>
                 </div>
                 <div class="media-body media-object">
                     <h4 class="media-heading text-dark">

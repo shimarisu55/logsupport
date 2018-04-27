@@ -4,7 +4,8 @@
 	<div class="media comment border-bottom mb-4">
 
 		<div class="media-left media-object mr-2 text-center">
-			<%= attachment_image_tag @user, :image, :fill, 100,100, format: 'jpeg', class: "block mb-1 icon-size", fallback: "no_image.jpg"  %>
+			<%#= image_tag @user.image, :fill, 100,100, format: 'jpeg', class: "block mb-1 icon-size", fallback: "no_image.jpg"  %>
+            <%= image_tag("no_image.jpg", size:'100x100') %>
 			<%= @user.tag %>
 		</div>
 
@@ -14,19 +15,18 @@
 				<%= @user.name %></h3>
 			<%= @user.descreption %></br></br>
 			<% if @user == current_user %>
-			<div class="mb-2">
-			  	<div class="row">
-		  			<%= link_to new_blog_path(current_user), class: 'btn btn-default text-dark col-3 text-center' do %>
-			      		<i class="fa fa-pencil" aria-hidden="true"></i><% end %>
-				    <%= link_to edit_user_path(current_user), class: 'btn btn-default text-dark col-3 text-center' do %>
-				      	<i class="fa fa-cog" aria-hidden="true"></i><% end %>
-				    <%= link_to user_favorites_path(@user), class: 'btn btn-default text-dark col-3 text-center' do %>
-					    <i class="fa fa-heart" aria-hidden="true"></i><% end %>
-				    	<%= link_to '退会', user_path(@user) , class: 'text-dark btn btn-default col-2 text-center', method: :delete,"data-confirm" => "本当に退会しますか" %>
-			    </div>
-			</div>
+    			<div class="mb-2">
+    			  	<div class="row">
+    		  			<%= link_to new_blog_path(current_user), class: 'btn btn-default text-dark col-3 text-center' do %>
+    			      		<i class="fa fa-pencil" aria-hidden="true"></i><% end %>
+    				    <%= link_to edit_user_path(current_user), class: 'btn btn-default text-dark col-3 text-center' do %>
+    				      	<i class="fa fa-cog" aria-hidden="true"></i><% end %>
+    				    <%= link_to user_favorites_path(@user), class: 'btn btn-default text-dark col-3 text-center' do %>
+    					    <i class="fa fa-heart" aria-hidden="true"></i><% end %>
+    				    	<%= link_to '退会', user_path(@user) , class: 'text-dark btn btn-default col-2 text-center', method: :delete,"data-confirm" => "本当に退会しますか" %>
+    			    </div>
+    			</div>
 			<% end %>
-
 		</div>
 	</div>
 
@@ -93,9 +93,6 @@
         </div>
     <% end %>
 </div>
-<%# if blogs.author == "著者" && blogs.source == "出典" && blogs.book == "問題集" %>
 <%= paginate @blogs, class: "pagenate" %>
-<%# else %>
-<%# end %>
 </div>
 </div>

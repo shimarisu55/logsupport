@@ -1,18 +1,20 @@
 <div class="container">
-<h1 class="mt-5">ごめんなさい　ただいま工事中です</h1></br>
+<!-- <h1 class="mt-5">ごめんなさい　ただいま工事中です</h1></br>
 <p>5月中に完成めざしてます。</p>
 <p>完成したら教室単位で記事の共有が楽しめます。</p>
 <p>公開範囲設定ができるので、全ユーザーに見られるのはちょっと。。。というシャイな子でも、教室の人だけ、先生のみ、など読む人に制限をかけることができます。</p>
-</div>
+</div> -->
 
-	<!-- <div class="col-xs-12 col-lg-8">
+	<div class="col-xs-12 col-lg-8">
 		<h2 class="page-header new-page">所属グループ
 				<button type="button" id="sampleButton" class="btn btn-secondary pull-right new-page">
 			グループ作成</button></h2>
+		<p>個人的に練習したい時は一人のままで。誰かに見てもらいたい場合はグループに招待しよう。</p>
 		<% @user.groups.each do |group| %>
 		<div class="media border-bottom box"><%= link_to group_path(group.id) do %>
-			<div class="media-left media-object mr-2 text-center ">
-				<%= attachment_image_tag group, :image, format: 'jpeg', class: "block size",fallback: "no_image.jpg", size: '80x80' %>
+			<div class="media-left media-object mr-2 text-center mt-2">
+				<%#= attachment_image_tag group, :image, format: 'jpeg', class: "block size",fallback: "no_image.jpg", size: '80x80' %>
+				<%= image_tag("no_image.jpg",size:'80x80') %>
 			</div>
 			<div class="media-body media-obfect"></br>
 				<h4 class="media-heading text-dark new-page">
@@ -39,7 +41,7 @@
 				   	 <p>グループの名前</p>
 				     <%= f.text_field :name %>
 			 	   	 <p>イメージ画像</p>
-				     <%= f.attachment_field :image %>
+				     <%= f.file_field :image %>
 			 	   	 <p>紹介</p>
 				     <%= f.text_area :descreption %>
 
@@ -63,4 +65,4 @@
 			$('#sampleModal').modal();
 		});
 	});
-	</script> -->
+	</script>

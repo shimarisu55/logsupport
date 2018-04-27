@@ -16,12 +16,11 @@ class BlogsController < ApplicationController
 
   def edit
   	@blog = Blog.find_by(id: params[:id])
-    @body = @blog.body
+    @user = User.find(current_user[:id])
   end
 
   def new
   	@blog = Blog.new
-    @body = @blog.body
     @user = User.find(current_user[:id])
 
   end

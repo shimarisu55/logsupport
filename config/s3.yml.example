@@ -1,0 +1,4 @@
+bucket: Your Bucket Name
+access_key_id: Your AccessKeyID
+secret_access_key: Your SecretAccessKey
+s3_host_name: s3-ap-northeast-1.amazonaws.com

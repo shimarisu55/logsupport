@@ -9,13 +9,12 @@
                 <%= f.submit '検索' %>
             </div>
             <% end %>
-        <% if @id === 1 %>
-            <div></div>
-        <% else %>
-            <% @users.each do |user| %>
+
+            <% @users.first(10).each do |user| %>
                 <div class="media border-bottom mb-2">
                     <div class="media-left media-object mr-1 text-center">
-                        <%= attachment_image_tag user, :image, format: 'jpeg', class: "block",fallback: "no_image.jpg", size: '40x40' %>
+                        <%#= image_tag user.image, format: 'jpeg', class: "block",fallback: "no_image.jpg", size: '40x40' %>
+                        <%= image_tag ("no_image.jpg"), format: 'jpeg', class: "block", size: '40x40' %>
                     </div>
                     <div class="media-body media-obfect">
                         <h4 class="media-heading text-dark"><%= user.name %></h4>
@@ -28,6 +27,5 @@
                     </div>
                 </div>
             <% end %>
-        <% end %>
 
 </div>
