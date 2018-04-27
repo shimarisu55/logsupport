@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180426123349) do
+ActiveRecord::Schema.define(version: 20180427081332) do
 
   create_table "blogs", force: :cascade do |t|
     t.integer "post_image_id"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20180426123349) do
     t.datetime "updated_at", null: false
     t.text "descreption"
     t.string "image_id"
+    t.integer "manage_id"
   end
 
   create_table "post_comments", force: :cascade do |t|
