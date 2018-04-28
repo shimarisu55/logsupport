@@ -3,9 +3,11 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @users = User.all
   	@blogs = @user.blogs.all
-  	@users = User.all
     @blogs = @blogs.page(params[:page]).per(12).order(:id)
+    @secret_groups = Group.where(:secret => true)
+
   end
 
   def edit

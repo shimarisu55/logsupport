@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180427081332) do
+ActiveRecord::Schema.define(version: 20180428052136) do
 
   create_table "blogs", force: :cascade do |t|
     t.integer "post_image_id"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180427081332) do
     t.text "descreption"
     t.string "image_id"
     t.integer "manage_id"
+    t.boolean "secret", default: false, null: false
   end
 
   create_table "post_comments", force: :cascade do |t|
