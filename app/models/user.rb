@@ -32,7 +32,7 @@ class User < ApplicationRecord
 #:s3_credentials => "#{Rails.root}/config/s3.yml",
 #:path => ":attachment/:id/:style.:extension"
 
-validates_attachment :image, content_type: { content_type: "image/jpg" }
+#validates_attachment :image, content_type: { content_type: "image/jpg" }
 
 
   has_many :blogs, dependent: :destroy
