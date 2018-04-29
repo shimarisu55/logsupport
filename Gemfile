@@ -75,5 +75,5 @@ gem "kaminari"
 gem "nokogiri"
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'paperclip'
-gem 'aws-sdk-s3'
+gem 'paperclip', '~> 4.3'
+gem 'aws-sdk', '< 2.0'

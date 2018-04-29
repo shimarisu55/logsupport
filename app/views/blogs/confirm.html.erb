@@ -1,6 +1,5 @@
 <div class="container">
     <div class="col-12 col-lg-8">
-    <%= form_for @blog do |f| %>
         <div class="blog-post">
           <h2>確認画面</h2>
           <h2 class="page-header">
@@ -21,98 +20,46 @@
               <strong>出典：</strong><%= @blog.source %></br>
             </div>
         </div>
-          <div class=" flex-nowrap justify-content-center">
-                  <div class="row">
-                    <div class="col-md-5 col-12 order-1 order-md-1">
-                      <strong>主張</strong>
-                  <p><%= @blog.claim1 %></p>
-                </div>
 
-                <div class="col-md-5 col-12 order-2 order-md-3">
-                      <strong>根拠1</strong>
-                      <% if @blog.basis1 == "" %>
-                      <p>なし</p>
-                      <% else %>
-                  <p><%= @blog.basis1 %></p>
-                  <% end %>
-                </div>
+      <%= render 'blogs/show_confirm', blog: @blog %>
 
-                <div class="col-md-5 col-12 order-3 order-md-5">
-                      <strong>具体例1</strong>
-                      <% if @blog.example1 == "" %>
-                      <p>なし</p>
-                      <% else %>
-                  <p class="border-bottom pb-2"><%= @blog.example1 %></p>
-                  <% end %>
-                </div>
-                
-                <div class="col-md-5 col-12 order-4 order-md-2">
-                    <strong>対比軸</strong>
-                <p><%= @blog.claim2 %></p>
-              </div>
-                    
-                <div class="col-md-5 col-12 order-5 order-md-4">
-                    <strong>根拠2</strong>
-                    <% if @blog.basis2 == "" %>
-                      <p>なし</p>
-                      <% else %>
-                <p><%= @blog.basis2 %></p>
-                <% end %>
-              </div>
 
-                <div class="col-md-5 col-12 order-6 order-md-6">
-                    <strong>具体例2</strong>
-                    <% if @blog.example2 == "" %>
-                      <p>なし</p>
-                      <% else %>
-                <p class="border-bottom pb-2"><%= @blog.example2 %></p>
-                <% end %>
-              </div>
-            </div>
-          </div>
-          <strong>要約</strong>
-          <p class="letter"><%= @blog.body %></p>
+      <div class="row flex">
+        <%= form_for :blog, url: new_blogs_path do |f| %>
+          <%= f.hidden_field :tag %>
+          <%= f.hidden_field :group_id %>
+          <%= f.hidden_field :user_id %>
+          <%= f.hidden_field :header %>
+          <%= f.hidden_field :author %>
+          <%= f.hidden_field :source %>
+          <%= f.hidden_field :book %>
+          <%= f.hidden_field :claim1 %>
+          <%= f.hidden_field :claim2 %>
+          <%= f.hidden_field :basis1 %>
+          <%= f.hidden_field :basis2 %>
+          <%= f.hidden_field :example1 %>
+          <%= f.hidden_field :example2 %>
+          <%= f.hidden_field :body %>
+          <%= f.submit '入力画面へ戻る', class:"btn btn-secondary" %>
         <% end %>
-      
 
-
-<div class="row flex">
-<%= form_for :blog, url: new_blogs_path do |f| %>
-  <%= f.hidden_field :tag %>
-  <%= f.hidden_field :group_id %>
-  <%= f.hidden_field :user_id %>
-  <%= f.hidden_field :header %>
-  <%= f.hidden_field :author %>
-  <%= f.hidden_field :source %>
-  <%= f.hidden_field :book %>
-  <%= f.hidden_field :claim1 %>
-  <%= f.hidden_field :claim2 %>
-  <%= f.hidden_field :basis1 %>
-  <%= f.hidden_field :basis2 %>
-  <%= f.hidden_field :example1 %>
-  <%= f.hidden_field :example2 %>
-  <%= f.hidden_field :body %>
-  <%= f.submit '入力画面へ戻る', class:"btn btn-secondary" %>
-<% end %>
-
-<%= form_for :blog, url: blogs_path do |f| %>
-　<%= f.hidden_field :tag %>
-  <%= f.hidden_field :group_id %>
-  <%= f.hidden_field :user_id %>
-  <%= f.hidden_field :header %>
-  <%= f.hidden_field :author %>
-  <%= f.hidden_field :source %>
-  <%= f.hidden_field :book %>
-  <%= f.hidden_field :claim1 %>
-  <%= f.hidden_field :claim2 %>
-  <%= f.hidden_field :basis1 %>
-  <%= f.hidden_field :basis2 %>
-  <%= f.hidden_field :example1 %>
-  <%= f.hidden_field :example2 %>
-  <%= f.hidden_field :body %>
-  <%= f.submit '登録する', class:"btn btn-secondary" %>
-<% end %>
-</div>
-</div>
-
+        <%= form_for :blog, url: blogs_path do |f| %>
+        　<%= f.hidden_field :tag %>
+          <%= f.hidden_field :group_id %>
+          <%= f.hidden_field :user_id %>
+          <%= f.hidden_field :header %>
+          <%= f.hidden_field :author %>
+          <%= f.hidden_field :source %>
+          <%= f.hidden_field :book %>
+          <%= f.hidden_field :claim1 %>
+          <%= f.hidden_field :claim2 %>
+          <%= f.hidden_field :basis1 %>
+          <%= f.hidden_field :basis2 %>
+          <%= f.hidden_field :example1 %>
+          <%= f.hidden_field :example2 %>
+          <%= f.hidden_field :body %>
+          <%= f.submit '登録する', class:"btn btn-secondary" %>
+        <% end %>
+      </div>
+    </div>
 </div>

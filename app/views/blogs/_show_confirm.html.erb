@@ -1,0 +1,51 @@
+  <div class=" flex-nowrap justify-content-center">
+      <div class="row">
+          <div class="col-md-5 col-12 order-1 order-md-1">
+                <strong>主張</strong>
+                <p><%= blog.claim1 %></p>
+          </div>
+
+          <div class="col-md-5 col-12 order-2 order-md-3">
+                <strong>根拠1</strong>
+                <% if blog.basis1 == "" %>
+                  <p>なし</p>
+                <% else %>
+                  <p><%= blog.basis1 %></p>
+                <% end %>
+          </div>
+
+          <div class="col-md-5 col-12 order-3 order-md-5">
+                <strong>具体例1</strong>
+                <% if blog.example1 == "" %>
+                  <p>なし</p>
+                <% else %>
+                  <p class="border-bottom pb-2"><%= blog.example1 %></p>
+                <% end %>
+          </div>
+          
+          <div class="col-md-5 col-12 order-4 order-md-2">
+              <strong>対比軸</strong>
+              <p><%= blog.claim2 %></p>
+          </div>
+              
+          <div class="col-md-5 col-12 order-5 order-md-4">
+              <strong>根拠2</strong>
+              <% if blog.basis2 == "" %>
+                <p>なし</p>
+              <% else %>
+                   <p><%= blog.basis2 %></p>
+              <% end %>
+          </div>
+
+          <div class="col-md-5 col-12 order-6 order-md-6">
+              <strong>具体例2</strong>
+              <% if blog.example2 == "" %>
+                <p>なし</p>
+              <% else %>
+                <p class="border-bottom pb-2"><%= blog.example2 %></p>
+              <% end %>
+          </div>
+      </div>
+    </div>
+            <strong>要約</strong>
+            <p class="letter"><%= blog.body %></p>

@@ -1,8 +1,12 @@
 <div class="container mt-5">
 	<div class="media comment border-bottom mb-4">
 		<div class="media-left media-object mr-2 text-center">
-			<%#= attachment_image_tag @group, :image, format: 'jpeg', class: "block", fallback: "no_image.jpg", size:'80x80' %>
-            <%= image_tag("no_image.jpg", size:'80x80' )%>
+            <% if @group.secret == true %>
+                <%= image_tag("group_key.jpg", size:'80x80' )%>
+            <% else %>
+			     <%#= attachment_image_tag @group, :image, format: 'jpeg', class: "block", fallback: "no_image.jpg", size:'80x80' %>
+                <%= image_tag("group_13.jpg", size:'80x80' )%>
+            <% end %>
 		</div>
 		<div class="media-body media-obfect mb-1">
 			<h3><%= @group.name %></h3>
@@ -103,11 +107,12 @@
                 </div>
                 <div class="media-body media-object">
                     <h4 class="media-heading text-dark">
-                        <%= user.name %>
+                        <%= link_to user_path(user), class:"text-dark" do %>
+                        <%= user.name %><% end %>
                         <h6>
                             <% if user.id == @group.manage_id %>
                                 グループの管理者
-                            <% else %>
+                            <% elsif current_user.id == @group.manage_id %>
                             <%= link_to "退会させる", group_group_user_path(@group.id, user.id), class: "text-dark text-right", method: :delete, "data-confirm" => "本当に退会させますか" %>
                             <% end %>
                         </h6>

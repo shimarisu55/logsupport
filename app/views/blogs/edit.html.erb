@@ -20,7 +20,8 @@
              <div class="col-xs-12 col-md-4">
                  <p>投稿先を選べるよ。先にGroupを作ろう</p>
                     <%#= f.select :group_id, [["全体", nil],@user.groups.map{|group| [group.name, group.id]}],  class: "select" %>
-                    <%= f.collection_select :group_id, @user.groups.all, :id, :name,prompt:"全体" %>
+                    <%= f.collection_select :group_id, @user.groups.all, :id, :name, prompt:"全体" %>
+
             </div>
         </div>
 

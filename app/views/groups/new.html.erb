@@ -8,8 +8,12 @@
 		<% @user.groups.each do |group| %>
 		<div class="media border-bottom box"><%= link_to group_path(group.id) do %>
 			<div class="media-left media-object mr-2 text-center mt-2">
-				<%#= attachment_image_tag group, :image, format: 'jpeg', class: "block size",fallback: "no_image.jpg", size: '80x80' %>
-				<%= image_tag("no_image.jpg",size:'80x80') %>
+				<% if group.secret == true %>
+					<%= image_tag("group_key.jpg",size:'80x80') %>
+				<% else %>
+				<%#= attachment_image_tag group, :image, class: "block size",fallback: "no_image.jpg", size: '80x80' %>
+					<%= image_tag("group_13.jpg",size:'80x80') %>
+				<% end %>
 			</div>
 			<div class="media-body media-obfect"></br>
 				<h4 class="media-heading text-dark new-page">
@@ -42,8 +46,6 @@
 				     <%= form_for(@group) do |f| %>
 				   	 <p>グループの名前</p>
 				     <%= f.text_field :name %>
-			 	   	 <p>イメージ画像</p>
-				     <%= f.file_field :image %>
 			 	   	 <p>紹介</p>
 				     <%= f.text_area :descreption %>
 
