@@ -72,8 +72,8 @@ gem "paranoia", "~> 2.0"
 gem 'ransack'
 gem "font-awesome-rails"
 gem "kaminari"
-gem "nokogiri"
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'paperclip', '~> 4.3'
 gem 'aws-sdk', '< 2.0'
+gem 'social-share-button'

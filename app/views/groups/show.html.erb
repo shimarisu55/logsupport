@@ -27,6 +27,7 @@
 
     <div class="row mb-2">
     	<% @users_blogs.each do |blog| %>
+            <%# if @secret_groups.ids.include?(blog.group_id) %>
             <% if blog.tag == "要約文" %>
             <% if blog.group_id == nil || blog.group_id == @group.id %>
             <div class="col-md-6 col-lg-4">
@@ -84,7 +85,7 @@
                     </div>
                 </div>
             </div>
-            <% end %><% end %>
+            <% end %><% end %><%# end %>
         <% end %>
     </div><%= paginate @users_blogs, class: "pagenate" %>
 </div>

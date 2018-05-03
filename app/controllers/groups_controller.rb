@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @group_manager = User.find_by(id: @group.manage_id)
+    @secret_groups = Group.where(:secret => true)
 
     @users_blogs = []
     @group.users.each do |user|
@@ -26,6 +27,7 @@ class GroupsController < ApplicationController
   def create
   	@group = Group.new(group_params)
     @group.manage_id = current_user.id
+    # @group.image = image("group_3.jpg")
     @group.save
     group_user = GroupUser.new
     group_user.user_id = current_user.id

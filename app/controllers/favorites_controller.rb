@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-    before_action :authenticate_user!, except: [:index,:show]
+   # before_action :authenticate_user!, except: [:index,:show]
         def create
             @blog = Blog.find(params[:blog_id])
             favorite = current_user.favorites.build(blog_id: @blog.id)
