@@ -26,7 +26,8 @@
 			<%= link_to user_path(favorite.user) do %>
 				<div class="media comment border-bottom">
 					<div class="media-left media-object mr-2 text-center">
-						<%= attachment_image_tag favorite.user, :image, :fill, 80,80, format: 'jpeg', class: "block icon-size", fallback: "no_image.jpg" %>
+						<%= image_tag("no_image.jpg", class:"block icon-size") %>
+						<%#= attachment_image_tag favorite.user, :image, :fill, 80,80, format: 'jpeg', class: "block icon-size", fallback: "no_image.jpg" %>
 					</div>
 					<div class="media-body media-obfect">
 						<h4 class="text-dark">
