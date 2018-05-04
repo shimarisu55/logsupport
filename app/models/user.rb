@@ -65,7 +65,6 @@ acts_as_paranoid
         nickname: auth.info.nickname,
 
         email:    auth.info.email,
-        password: Devise.friendly_token[0, 20]
       )
     end
  
