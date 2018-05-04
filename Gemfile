@@ -74,6 +74,7 @@ gem "font-awesome-rails"
 gem "kaminari"
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 gem 'paperclip', '~> 4.3'
 gem 'aws-sdk', '< 2.0'
 gem 'social-share-button'

@@ -277,5 +277,6 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.omniauth :twitter, '7PAd3dKOGQVKP6kfIxyxwH6wk', 'xvniTmvlcHj44u5zDDaKvvCc1vnh1S2wAip5LI6mxDekJb0SMH'
+  config.omniauth :facebook, '2142057612486068', '65d31fb93af92acb8e51e045ec57e105'
 
 end
