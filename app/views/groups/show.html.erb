@@ -27,8 +27,9 @@
 
     <div class="row mb-2">
     	<% @users_blogs.each do |blog| %>
-            <%# if @secret_groups.ids.include?(blog.group_id) %>
-            <% if blog.tag == "要約文" %>
+            <% if @group.secret == true %>
+                <div></div>
+            <% elsif blog.tag == "要約文" %>
             <% if blog.group_id == nil || blog.group_id == @group.id %>
             <div class="col-md-6 col-lg-4">
                 <div class="card flex-md-row mb-4 box-shadow h-md-300">

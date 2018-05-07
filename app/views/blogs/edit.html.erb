@@ -14,12 +14,13 @@
         <div class="row">
             <div class="col-xs-12 col-md-4">
                  <p>形式</p>
+                 <%#= @blog.tag %>
                  <%= f.select :tag,  [["要約文", "要約文"],["意見文", "意見文"]], class: "select" %>
              </div>
 
              <div class="col-xs-12 col-md-4">
-                 <p>投稿先を選べるよ。先にGroupを作ろう</p>
-                    <%#= f.select :group_id, [["全体", nil],@user.groups.map{|group| [group.name, group.id]}],  class: "select" %>
+                 <p>投稿先</p>
+                 <%#= @blog.group_id %>
                     <%= f.collection_select :group_id, @user.groups.all, :id, :name, prompt:"全体" %>
 
             </div>
@@ -103,121 +104,3 @@
 
 </script>
 
-<!-- <div class="container mt-5">
-<h1 class="header-size">記事編集</h1>
-   <%= form_for(@blog) do |f| %>
-       <div class="row">
-             <p>形式</p>
-             <%= f.select :tag,  [["要約文", "要約文"],["意見文", "意見文"]] %>
-        </div>
-
-        <div class="row">
-             <p>見出しタイトル</p>
-             <%= f.text_field :header %>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-4">
-                 <p>著者</p>
-                 <%= f.text_field :author %>
-            </div>
-            <div class="col-xs-12 col-md-4">
-                 <p>出典</p>
-                 <%= f.text_field :source %>
-            </div>
-            <div class="col-xs-12 col-md-4">
-                 <p>問題集</p>
-                 <%= f.text_field :book %>
-            </div>
-        </div>
-
-            <section class="section mb-4">
-                    <div class="flex-md-row h-md-300 d-flex flex-nowrap">
-                        <div class="row">
-                            <div class="col-md-5 col-xs-12 order-1 order-md-1">
-                                <p>主張</p>
-                                <%= f.text_field :claim1 %>
-                            </div>
-                            <div class="col-md-5 col-xs-12 order-4 order-md-2">
-                                <p>対比軸</p>
-                                <%= f.text_field :claim2 %>
-                            </div>
-
-                            <div class="col-md-5 col-xs-12 order-2 order-md-3">
-                                <p>根拠1</p>
-                                <%= f.text_field :basis1 %>
-                            </div>
-                            <div class="col-md-5 col-xs-12 order-5 order-md-4">
-                                <p>根拠2</p>
-                                <%= f.text_field :basis2 %>
-                            </div>
-
-                            <div class="col-md-5 col-xs-12 order-3 order-md-5">
-                                <p>具体例1</p>
-                                <%= f.text_field :example1 %>
-                            </div>
-                            <div class="col-md-5 col-xs-12 order-6 order-md-6">
-                                <p>具体例2</p>
-                                <%= f.text_field :example2 %>
-                            </div>
-                        </div>
-                    </div>
-            </section>
-
-        <div class="row">
-               <select id="select">
-                    <option selected disabled>文字数選択</option>
-                    <option>50</option>
-                    <option>100</option>
-                    <option>200</option>
-                    <option>400</option>
-                </select>
-
-        </div>
-        <div class="row">
-            <p>本文</p>
-            <textarea id="cou" cols="50" rows="10" name="blog[body]"><%= @body %></textarea>
-            <p id="nowlength"></p>　
-            <p id="inputlength"></p>
-        </div>
-     <div class="btn inline">
-     	<%= f.submit '修正する',class:"btn btn-primary btn-block" %>
-     </div>
-   <% end %>
-</div>
-
-
-
-
-<script type="text/javascript">
-    $(function(){
-        $("#nowlength").text("今"+$("#cou").val().length+"文字");
-
-        //現在の文字数計測
-        $("#cou").keyup(function() {
-            $("#nowlength").text("今"+$("#cou").val().length+"文字");
-        })
-
-        //文字数選択済み
-        $("#select").change(function() {
-            var val = $(this).val(); //100 or 200
-            var cou = $("#cou").val().length; //textareaの文字数
-            var res = val-cou; //残り文字数
-            $("#inputlength").text("残り"+res+"文字");
-
-            //キーアップ
-            $("#cou").keyup(function() {
-                var val = $("#select").val();
-                var cou = $("#cou").val().length;
-                res = val-cou;
-                $("#inputlength").text("残り"+res+"文字");
-
-            });
-        });
-    });
-
-
-</script>
-
-
-
- -->

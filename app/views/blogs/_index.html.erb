@@ -1,5 +1,5 @@
 <div class="mb-2 row">
-    <% blogs.each do |blog| %>
+    <% blogs.first(300).each do |blog| %>
         <% if blog.tag == "要約文" && blog.group_id == nil %>
         <div class="col-md-6 col-lg-4">
             <div class="card flex-md-row mb-4 box-shadow">
@@ -61,6 +61,6 @@
         </div>
         <% end %>
     <% end %></div>
-<%= paginate blogs, class: "pagenate" %>
+<%#= paginate blogs, class: "pagenate" %>
 </div>
 

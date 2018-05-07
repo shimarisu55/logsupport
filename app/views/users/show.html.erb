@@ -18,7 +18,7 @@
 			<% if @user == current_user %>
     			<div class="mb-2">
     			  	<div class="row">
-    		  			<%= link_to new_blog_path(current_user), class: 'btn btn-default text-dark col-3 text-center' do %>
+    		  			<%= link_to new_blog_path(current_user,tag:"要約文"), class: 'btn btn-default text-dark col-3 text-center' do %>
     			      		<i class="fa fa-pencil" aria-hidden="true"></i><% end %>
     				    <%= link_to edit_user_path(current_user), class: 'btn btn-default text-dark col-3 text-center' do %>
     				      	<i class="fa fa-cog" aria-hidden="true"></i><% end %>
@@ -35,7 +35,7 @@
 <div class="row">
     <% @blogs.each do |blog| %>
         <% if @secret_groups.ids.include?(blog.group_id) %>
-        <% else %>
+        <% elsif blog.tag == "要約文" %>
             <div class="col-md-6 col-lg-4">
                 <div class="card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">

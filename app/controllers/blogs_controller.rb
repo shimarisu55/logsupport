@@ -4,23 +4,24 @@ class BlogsController < ApplicationController
   def index
     @q = Blog.ransack(params[:q])
     @blogs = @q.result
-    @blogs = @blogs.page(params[:page]).per(24).order(:id)
+    # @blogs = @blogs.page(params[:page]).per(24).order(:id)
   end
 
   def show
   	@blog = Blog.find(params[:id])
     @post_comment = PostComment.new
     @blog_option = Blog.find_by(user_id:@blog.user_id,author:@blog.author,source:@blog.source,book:@blog.book,tag:"意見文")
-    @blog_resume = Blog.find_by(user_id:@blog.user_id,author:@blog.author,source:@blog.source,book:@blog.book,tag:"要約文")
+    # @blog_resume = Blog.find_by(user_id:@blog.user_id,author:@blog.author,source:@blog.source,book:@blog.book,tag:"要約文")
   end
 
   def edit
   	@blog = Blog.find_by(id: params[:id])
     @user = User.find(current_user[:id])
+    @blog.group_id = nil
   end
 
   def new
-  	@blog = Blog.new
+  	@blog = Blog.new(user_id:params[:id],author:params[:author],source:params[:source],book:params[:book],tag:params[:tag])
     @user = User.find(current_user[:id])
 
   end
@@ -65,6 +66,5 @@ class BlogsController < ApplicationController
   	params.require(:blog).permit(:user_id, :header, :body, :author,:source, :book, :tag,
       :claim1, :claim2, :basis1, :basis2, :example1, :example2, :group_id)
   end
-
 
 end
