@@ -37,26 +37,46 @@
 
 		    
 
-		<% if @blog_option == nil %>
+		
+		<% if @blog_resume == nil %>
 			<div></div>
 		<% else %>
 			<div class="border mb-3"></div>
 			<div class="section2 mb-4">
 
-					<%# if @blog.tag == "要約文" %>
-						<%# if @blog_option == nil %>
-						<%# else %>
-							<%#= link_to blog_path(@blog_option) do %>
-								<!-- <p class="text-center text-warning"><span>意見文を読む</span>>><%#= @blog_option.header %></p><%# end %> -->
-						<%# end %>
-					<%# else %>
-						<%# if @blog_resume == nil %>
-						<%# else %>
-							<%#= link_to blog_path(@blog_resume) do %>
-								<!-- <p class="text-center text-success"><span>要約文に戻る</span>>><%#= @blog_resume.header %></p><%# end %> -->
-						<%# end %>
-					<%# end %>
+					<div class="blog-post">
+				    	<h2 class="page-header">
+				    		<%= @blog_resume.header %>
+			    		</h2>
+				    	<div class="blog-post-meta text-right">
+				    		<%= @blog_resume.created_at %>
+					  		<% if @blog_resume.tag  == "要約文" %>
+			        		<strong class="d-inline-block mb-2 text-success"><%= @blog_resume.tag  %>
+			        		</strong>
+			                <% else %>
+			        		<strong class="d-inline-block mb-2 text-warning"><%= @blog_resume.tag  %>
+			        		</strong>
+			                <% end %>
 
+		        		</div>
+		        		<div class="text-right mb-3">
+		        			<strong>著者：</strong><%= @blog_resume.author %>　
+		        			<strong>出典：</strong><%= @blog_resume.source %></br>
+			        		<% if @blog_resume.user == current_user %>
+								<%= link_to "編集", edit_blog_path(@blog_resume) %>　
+								<%= link_to "削除", blog_path(@blog_resume), method: :delete,"data-confirm" => "本当に削除しますか"  %>
+							<% end %>
+						</div>
+				    </div>
+
+				    <%= render 'blogs/show_confirm', blog: @blog_resume %>
+		<% end %>
+		
+		<% if @blog_option == nil %>
+			<div></div>
+		<% else %>
+			<div class="border mb-3"></div>
+			<div class="section2 mb-4">
 
 					<div class="blog-post">
 				    	<h2 class="page-header">
@@ -80,8 +100,6 @@
 								<%= link_to "編集", edit_blog_path(@blog_option) %>　
 								<%= link_to "削除", blog_path(@blog_option), method: :delete,"data-confirm" => "本当に削除しますか"  %>
 							<% end %>
-							<%= social_share_button_tag(@blog_option.header) %>
-
 						</div>
 				    </div>
 
