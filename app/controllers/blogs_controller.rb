@@ -11,7 +11,7 @@ class BlogsController < ApplicationController
   	@blog = Blog.find(params[:id])
     @post_comment = PostComment.new
     @blog_option = Blog.find_by(user_id:@blog.user_id,author:@blog.author,source:@blog.source,book:@blog.book,tag:"意見文")
-    @blog_resume = Blog.find_by(user_id:@blog.user_id,author:@blog.author,source:@blog.source,book:@blog.book,tag:"要約文")
+    # @blog_resume = Blog.find_by(user_id:@blog.user_id,author:@blog.author,source:@blog.source,book:@blog.book,tag:"要約文")
   end
 
   def edit
