@@ -17,7 +17,8 @@
         		</div>
         		<div class="text-right mb-3">
         			<strong>著者：</strong><%= @blog.author %>　
-        			<strong>出典：</strong><%= @blog.source %></br>
+        			<strong>出典：</strong><%= @blog.source %>　
+        			<strong>問題集：</strong><%= @blog.book %></br>
 	        		<% if @blog.user == current_user %>
 						<%= link_to "編集", edit_blog_path %>　
 						<%= link_to "削除", blog_path(@blog), method: :delete,"data-confirm" => "本当に削除しますか"  %>
