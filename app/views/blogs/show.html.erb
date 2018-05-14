@@ -119,9 +119,7 @@
 						<div id="favorite_count-<%= @blog.id %>"><%= render 'blogs/favorite_count', blog: @blog %></div>
 					<% end %>
 				</div>
-			</div>
-
-				
+			
 
 				<div class="row border mb-3">
 					<% if current_user == nil %>
@@ -137,6 +135,7 @@
 					</div>
 					<% end %>
 				</div>
+			</div>
 
 				<% @blog.post_comments.each do |post_comment| %>
 				<div class="media comment border-bottom mb-3">
