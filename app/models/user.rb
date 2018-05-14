@@ -61,7 +61,7 @@ acts_as_paranoid
         email:    User.dummy_email(auth),
 #        email:    auth.info.email,
         password: Devise.friendly_token[0, 20],
-        image: auth.info.image,
+ #       image: auth.info.image,
         name: auth.info.name,
         nickname: auth.info.nickname,
 
